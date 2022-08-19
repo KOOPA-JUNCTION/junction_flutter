@@ -8,6 +8,9 @@ import "dart:js" as js;
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  //var state = js.JsObject.fromBrowserObject(js.context['state']);
+  //print(state['hello']);
+
   @override
   Widget build(BuildContext context) {
     final TextEditingController textEditingController = TextEditingController();
@@ -15,21 +18,26 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.black,
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.all(44),
+        padding: const EdgeInsets.all(100),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("Hello World!!!"),
-            const SizedBox(height: 8),
-            FGBPTextField(textController: textEditingController),
             const SizedBox(height: 8),
             FGBPTextButton(
-              text: "Hello",
+              text: "Alert Message",
               radius: 10,
               onTap: () {
                 js.context.callMethod(
                     "alertMessage", ["Flutter is Calling upon JavaScript"]);
+              },
+            ),
+            const SizedBox(height: 8),
+            FGBPTextButton(
+              text: "Loger",
+              radius: 10,
+              onTap: () {
+                js.context.callMethod('logger', ["flutterState"]);
               },
             ),
           ],
