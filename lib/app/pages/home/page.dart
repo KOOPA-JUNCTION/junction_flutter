@@ -1,8 +1,6 @@
-import 'package:firebase_getx_boilerplate/app/core/theme/text_theme.dart';
 import 'package:firebase_getx_boilerplate/app/pages/home/controller.dart';
 import 'package:firebase_getx_boilerplate/app/widgets/button.dart';
 import 'package:firebase_getx_boilerplate/app/widgets/dropzone.dart';
-import 'package:firebase_getx_boilerplate/app/widgets/textfield.dart';
 import 'package:flutter/material.dart';
 
 import "dart:js" as js;
@@ -19,7 +17,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController textEditingController = TextEditingController();
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
