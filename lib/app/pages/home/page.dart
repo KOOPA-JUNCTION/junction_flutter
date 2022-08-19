@@ -43,7 +43,11 @@ class HomePage extends StatelessWidget {
                 js.context.callMethod('logger', ["flutterState"]);
               },
             ),
-            DropZoneWidget(onDroppedFile: controller.onDroppedFile)
+            SizedBox(
+              width: 100,
+              height: 100,
+              child: DropZoneWidget(onDroppedFile: controller.onDroppedFile),
+            )
           ],
         ),
       )),

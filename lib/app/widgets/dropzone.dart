@@ -22,7 +22,8 @@ class _DropZoneWidgetState extends State<DropZoneWidget> {
       children: [
         DropzoneView(
           onCreated: (controller) => this.controller = controller,
-          onDropMultiple: uploadedsFile,
+          onDrop: uploadFile,
+          //onDropMultiple: uploadedsFile,
           onHover: () => setState(() => highlight = true),
           onLeave: () => setState(() => highlight = false),
         ),
@@ -30,31 +31,22 @@ class _DropZoneWidgetState extends State<DropZoneWidget> {
     ));
   }
 
-  Future uploadedsFile(List<dynamic>? event) async {
-    int count = 0;
-    int len = event!.length;
-    for (int i = 0; i < len; i++) {
-      final e = event[i];
-      final data = await controller.getFileData(e);
-      final type = await controller.getFileMIME(e);
-      final name = e.name;
-      count++;
-      widget.onDroppedFile({
-        "name": name,
-        "data": data,
-        "type": type,
-        "index": count,
-        "len": len,
-      });
-    }
-
+  Future uploadFile(dynamic event) async {
+    final data = await controller.getFileData(event);
+    final type = await controller.getFileMIME(event);
+    final name = event.name;
+    widget.onDroppedFile({
+      "name": name,
+      "data": data,
+      "type": type,
+    });
     setState(() {
       highlight = false;
     });
   }
 
   Widget buildDecoration({required Widget child}) {
-    final colorBackground = highlight ? Colors.red : Colors.black;
+    final colorBackground = highlight ? Colors.red : Colors.white;
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
       child: Container(
