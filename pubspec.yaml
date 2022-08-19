@@ -53,6 +53,8 @@ dependencies:
   intl: ^0.17.0
   uuid: ^3.0.6
   flutter_dropzone: ^3.0.5
+  dual_screen: ^1.0.3
+  adaptive_breakpoints: ^0.1.4
 
 dev_dependencies:
   flutter_test:
