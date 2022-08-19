@@ -1,15 +1,21 @@
 import 'package:firebase_getx_boilerplate/app/core/theme/text_theme.dart';
+import 'package:firebase_getx_boilerplate/app/pages/home/controller.dart';
 import 'package:firebase_getx_boilerplate/app/widgets/button.dart';
+import 'package:firebase_getx_boilerplate/app/widgets/dropzone.dart';
 import 'package:firebase_getx_boilerplate/app/widgets/textfield.dart';
 import 'package:flutter/material.dart';
 
 import "dart:js" as js;
 
+import 'package:get/get.dart';
+
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
 
   //var state = js.JsObject.fromBrowserObject(js.context['state']);
   //print(state['hello']);
+
+  final HomePageController controller = Get.find<HomePageController>();
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +46,7 @@ class HomePage extends StatelessWidget {
                 js.context.callMethod('logger', ["flutterState"]);
               },
             ),
+            DropZoneWidget(onDroppedFile: controller.onDroppedFile)
           ],
         ),
       )),
