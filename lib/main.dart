@@ -6,6 +6,7 @@ import 'package:firebase_getx_boilerplate/generated/locales.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 //https://medium.com/@kenaragorn/flutter-web-readiness-for-the-world-65a480d7c660
 //get generate locales assets/locales
@@ -19,6 +20,7 @@ void main() async {
   // Do Firebase Initial Settings With Firebase CLI
   // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await AppInitalizer().init();
+  setPathUrlStrategy();
   runApp(GetMaterialApp(
     initialRoute: Routes.home,
     getPages: AppPages.pages,
