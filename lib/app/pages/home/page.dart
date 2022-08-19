@@ -2,6 +2,7 @@ import 'package:firebase_getx_boilerplate/app/layout/adaptive.dart';
 import 'package:firebase_getx_boilerplate/app/pages/home/controller.dart';
 import 'package:firebase_getx_boilerplate/app/widgets/button.dart';
 import 'package:firebase_getx_boilerplate/app/widgets/dropzone.dart';
+import 'package:firebase_getx_boilerplate/generated/locales.g.dart';
 import 'package:flutter/material.dart';
 
 import "dart:js" as js;
@@ -40,7 +41,7 @@ class DesktopHomePage extends StatelessWidget {
           children: [
             Expanded(
               child: FGBPTextButton(
-                text: "Alert Message",
+                text: LocaleKeys.buttons_login.tr,
                 radius: 10,
                 onTap: () {
                   js.context.callMethod(
@@ -51,7 +52,7 @@ class DesktopHomePage extends StatelessWidget {
             const SizedBox(width: 8),
             Expanded(
               child: FGBPTextButton(
-                text: "Loger",
+                text: LocaleKeys.buttons_logout.tr,
                 radius: 10,
                 onTap: () {
                   js.context.callMethod('logger', ["flutterState"]);
@@ -83,7 +84,7 @@ class MobileHomePage extends StatelessWidget {
           children: [
             const SizedBox(height: 8),
             FGBPTextButton(
-              text: "Alert Message",
+              text: LocaleKeys.buttons_login.tr,
               radius: 10,
               onTap: () {
                 js.context.callMethod(
@@ -92,7 +93,7 @@ class MobileHomePage extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             FGBPTextButton(
-              text: "Loger",
+              text: LocaleKeys.buttons_logout.tr,
               radius: 10,
               onTap: () {
                 js.context.callMethod('logger', ["flutterState"]);
