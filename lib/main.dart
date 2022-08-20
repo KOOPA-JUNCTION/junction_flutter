@@ -20,7 +20,7 @@ void main() async {
   // Do Firebase Initial Settings With Firebase CLI
   // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await AppInitalizer().init();
-  setPathUrlStrategy();
+  //setPathUrlStrategy();
   runApp(GetMaterialApp(
     initialRoute: Routes.home,
     getPages: AppPages.pages,
