@@ -81,4 +81,6 @@ class RootController extends GetxController {
     if (result == null) return;
     Get.toNamed(Routes.image_detail, arguments: {'file': result});
   }
+
+  bool get isAvailableCamera => GetPlatform.isMobile || Get.context!.isTablet;
 }

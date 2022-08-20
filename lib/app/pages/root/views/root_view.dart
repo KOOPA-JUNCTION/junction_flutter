@@ -67,8 +67,9 @@ class RootView extends GetView<RootController> {
                                 ),
                               ),
                             ),
-                            if (GetPlatform.isMobile) const SizedBox(width: 60),
-                            if (GetPlatform.isMobile)
+                            if (controller.isAvailableCamera)
+                              const SizedBox(width: 60),
+                            if (controller.isAvailableCamera)
                               Container(
                                 decoration: BoxDecoration(
                                   color: Get.theme.colorScheme.secondary,
