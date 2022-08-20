@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
-    if (isDesktop) return DesktopHomePage();
+    //if (isDesktop) return DesktopHomePage();
     return MobileHomePage();
   }
 }
