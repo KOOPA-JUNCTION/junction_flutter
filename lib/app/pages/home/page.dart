@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:firebase_getx_boilerplate/app/layout/adaptive.dart';
 import 'package:firebase_getx_boilerplate/app/pages/home/controller.dart';
 import 'package:firebase_getx_boilerplate/app/widgets/button.dart';
@@ -99,6 +100,7 @@ class MobileHomePage extends StatelessWidget {
                 js.context.callMethod('logger', ["flutterState"]);
               },
             ),
+            controller.obx((state) => CameraPreview(controller.controller))
           ],
         ),
       )),
