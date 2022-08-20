@@ -1,4 +1,3 @@
-import 'package:firebase_getx_boilerplate/app/core/theme/color_theme.dart';
 import 'package:firebase_getx_boilerplate/app/core/theme/text_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -22,21 +21,19 @@ class ImageCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          color: AppColorTheme.mainColor,
+          borderRadius: BorderRadius.circular(16),
         ),
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(40),
-            child: Column(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
               children: [
-                Image.asset(imgUrl),
-                const SizedBox(height: 10),
-                Text(title, style: AppTextTheme.semiboldWhite16),
-                Text(content, style: AppTextTheme.semiboldWhite16),
+                Expanded(child: Image.asset(imgUrl, fit: BoxFit.cover)),
               ],
             ),
-          ),
+            const SizedBox(height: 6),
+            Text(title, style: AppTextTheme.medium16),
+          ],
         ),
       ),
     );

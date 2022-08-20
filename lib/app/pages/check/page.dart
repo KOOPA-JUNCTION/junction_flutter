@@ -4,6 +4,7 @@ import 'package:firebase_getx_boilerplate/app/layout/adaptive.dart';
 import 'package:firebase_getx_boilerplate/app/pages/check/controller.dart';
 
 import 'package:firebase_getx_boilerplate/app/widgets/button.dart';
+import 'package:firebase_getx_boilerplate/app/widgets/textfield.dart';
 import 'package:firebase_getx_boilerplate/generated/locales.g.dart';
 import 'package:flutter/material.dart';
 
@@ -101,34 +102,25 @@ class MobileCheckImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Detail on Nft", style: AppTextTheme.bold18),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: true,
+        foregroundColor: Colors.black,
+      ),
       backgroundColor: Colors.black,
       body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(100),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(height: 8),
-            FGBPTextButton(
-              text: LocaleKeys.buttons_login.tr,
-              radius: 10,
-              onTap: () {
-                js.context.callMethod(
-                    "alertMessage", ["Flutter is Calling upon JavaScript"]);
-              },
-            ),
-            const SizedBox(height: 8),
-            FGBPTextButton(
-              text: LocaleKeys.buttons_logout.tr,
-              radius: 10,
-              onTap: () {
-                js.context.callMethod('logger', ["flutterState"]);
-              },
-            ),
-            controller.obx((state) => CameraPreview(controller.controller))
-          ],
-        ),
+          child: Column(
+        children: [
+          Image.asset(""),
+          Text("1. Name", style: AppTextTheme.bold18),
+          FGBPTextField(textController: controller.nameController),
+          FGBPTextField(textController: controller.nameController),
+          FGBPTextField(textController: controller.nameController),
+          FGBPTextField(textController: controller.nameController),
+          FGBPTextField(textController: controller.nameController),
+        ],
       )),
     );
   }

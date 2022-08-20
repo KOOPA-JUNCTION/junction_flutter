@@ -22,11 +22,23 @@ abstract class AppTextTheme {
       fontWeight: FontWeight.w700,
       fontSize: 12,
       color: AppColorTheme.mainColor);
+  static const bold12 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w700,
+      fontSize: 12,
+      color: AppColorTheme.black);
   static const bold20 = TextStyle(
       fontFamily: "Pretendard",
       fontWeight: FontWeight.w700,
       fontSize: 20,
       color: AppColorTheme.black);
+  static const bold20Under = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w700,
+      fontSize: 20,
+      color: AppColorTheme.black,
+      decoration: TextDecoration.underline,
+      decorationColor: AppColorTheme.subColor);
   static const bold18 = TextStyle(
       fontFamily: "Pretendard",
       fontWeight: FontWeight.w700,
@@ -109,5 +121,15 @@ abstract class AppTextTheme {
       fontFamily: "Pretendard",
       fontWeight: FontWeight.w500,
       fontSize: 12,
+      color: AppColorTheme.black);
+  static const medium16 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w500,
+      fontSize: 16,
+      color: AppColorTheme.black);
+  static const medium8 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w500,
+      fontSize: 8,
       color: AppColorTheme.black);
 }

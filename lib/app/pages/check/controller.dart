@@ -1,35 +1,6 @@
-import 'package:camera/camera.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CheckImageController extends GetxController with StateMixin {
-  RxString username = "주자훈".obs;
-
-  late CameraController controller;
-
-  final TextEditingController search = TextEditingController();
-
-  @override
-  void onInit() async {
-    final _cameras = await availableCameras();
-    initCamera(_cameras);
-    super.onInit();
-  }
-
-  @override
-  void onClose() {
-    controller.dispose();
-    super.onClose();
-  }
-
-  void initCamera(List<CameraDescription> cameras) async {
-    change(null, status: RxStatus.loading());
-    controller = CameraController(cameras[0], ResolutionPreset.max);
-    await controller.initialize();
-    change(null, status: RxStatus.success());
-  }
-
-  void onDroppedFile(value) {
-    print(value);
-  }
+  final TextEditingController nameController = TextEditingController();
 }

@@ -1,137 +1,174 @@
-import 'package:camera/camera.dart';
-import 'package:firebase_getx_boilerplate/app/core/theme/text_theme.dart';
-import 'package:firebase_getx_boilerplate/app/layout/adaptive.dart';
 import 'package:firebase_getx_boilerplate/app/pages/profile/controller.dart';
-import 'package:firebase_getx_boilerplate/app/widgets/button.dart';
-import 'package:firebase_getx_boilerplate/generated/locales.g.dart';
 import 'package:flutter/material.dart';
-
-import "dart:js" as js;
 
 import 'package:get/get.dart';
 
-class ProfilePage extends StatelessWidget {
-  ProfilePage({
-    Key? key,
-  }) : super(key: key);
+import '../../../../generated/locales.g.dart';
 
-  final ProfilePageController controller = Get.find<ProfilePageController>();
-
-  @override
-  Widget build(BuildContext context) {
-    final isDesktop = isDisplayDesktop(context);
-    if (isDesktop) {
-      return DesktopProfilePage(
-        category: controller.category.value,
-        content: controller.content.value,
-        imgUrl: controller.imgUrl.value,
-        owner: controller.owner.value,
-        coin: controller.coin.value,
-      );
-    }
-    return MobileProfilePage();
-  }
-}
-
-class DesktopProfilePage extends StatelessWidget {
-  DesktopProfilePage({
-    Key? key,
-    required this.category,
-    required this.content,
-    required this.imgUrl,
-    required this.owner,
-    required this.coin,
-  }) : super(key: key);
-
-  final String category;
-  final String content;
-  final String imgUrl;
-  final String owner;
-  final String coin;
-
-  final ProfilePageController controller = Get.find<ProfilePageController>();
+class _ProfileButton extends StatelessWidget {
+  final void Function()? onPress;
+  final String name;
+  final String id;
+  const _ProfileButton({
+    required this.onPress,
+    required this.name,
+    required this.id,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 4,
+          ),
+        ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onPress,
+          borderRadius: BorderRadius.circular(16),
           child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            header(),
-            userCard(),
-            Column(
-              children: const [
-                Text("나의 자산", style: AppTextTheme.bold20),
+            padding: const EdgeInsets.all(20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      name,
+                      style: Get.textTheme.bodyLarge!.copyWith(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(id),
+                  ],
+                ),
+                const Icon(
+                  Icons.keyboard_arrow_right_rounded,
+                  size: 40,
+                  color: Color(0xff7e7e7d),
+                ),
               ],
             ),
-            //DefaultTabController(length: length, child: child)
-          ],
+          ),
         ),
-      )),
-    );
-  }
-
-  Card userCard() {
-    return Card(
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-        Column(),
-        IconButton(onPressed: () {}, icon: const Icon(Icons.turn_right))
-      ]),
-    );
-  }
-
-  Row header() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.alarm),
-        )
-      ],
+      ),
     );
   }
 }
 
-class MobileProfilePage extends StatelessWidget {
-  MobileProfilePage({Key? key}) : super(key: key);
-
-  final ProfilePageController controller = Get.find<ProfilePageController>();
-
+class ProfileView extends GetView<ProfilePageController> {
+  const ProfileView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(100),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(height: 8),
-            FGBPTextButton(
-              text: LocaleKeys.buttons_login.tr,
-              radius: 10,
-              onTap: () {
-                js.context.callMethod(
-                    "alertMessage", ["Flutter is Calling upon JavaScript"]);
-              },
-            ),
-            const SizedBox(height: 8),
-            FGBPTextButton(
-              text: LocaleKeys.buttons_logout.tr,
-              radius: 10,
-              onTap: () {
-                js.context.callMethod('logger', ["flutterState"]);
-              },
-            ),
-            //controller.obx((state) => CameraPreview(controller.controller))
-          ],
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.notifications_outlined),
         ),
-      )),
+      ),
+      body: CustomScrollView(
+        slivers: [
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            sliver: SliverToBoxAdapter(
+              child: _ProfileButton(
+                onPress: () {},
+                id: 'ja_hoon_05',
+                name: '주자훈',
+              ),
+            ),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            sliver: SliverToBoxAdapter(
+              child: Text(
+                LocaleKeys.profile_my.tr,
+                style: Get.textTheme.bodyLarge!.copyWith(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.all(20),
+            sliver: SliverGrid(
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 180,
+                childAspectRatio: 165 / 180,
+                crossAxisSpacing: 20,
+                mainAxisSpacing: 20,
+                mainAxisExtent: 180,
+              ),
+              delegate: SliverChildBuilderDelegate(
+                (_, index) => Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(16),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 4,
+                      ),
+                    ],
+                  ),
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () {},
+                      borderRadius: BorderRadius.circular(16),
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(16),
+                              topRight: Radius.circular(16),
+                            ),
+                            child: Container(
+                              color: Colors.green,
+                              height: 128,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 14,
+                            ),
+                            child: Row(
+                              children: [
+                                const Text(
+                                  '부산 광안리',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Expanded(child: Container()),
+                                const Text('0.039')
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                childCount: 10,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

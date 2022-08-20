@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 abstract class AppColorTheme {
   /// Main Color
-  static const mainColor = Color(0xfff1982A);
+  static const mainColor = Color(0xff1E299C);
 
   /// Sub Color
-  static const subColor = Color(0xff7E7E7D);
+  static const subColor = Color(0xff1E299C);
 
   /// black
   static const black = Colors.black;

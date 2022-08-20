@@ -2,11 +2,9 @@ import 'package:camera/camera.dart';
 import 'package:firebase_getx_boilerplate/app/core/theme/text_theme.dart';
 import 'package:firebase_getx_boilerplate/app/layout/adaptive.dart';
 import 'package:firebase_getx_boilerplate/app/pages/home/controller.dart';
-import 'package:firebase_getx_boilerplate/app/pages/home/widgets/card.dart';
-import 'package:firebase_getx_boilerplate/app/pages/home/widgets/story.dart';
-import 'package:firebase_getx_boilerplate/app/widgets/button.dart';
-import 'package:firebase_getx_boilerplate/app/widgets/textfield.dart';
-import 'package:firebase_getx_boilerplate/generated/locales.g.dart';
+import 'package:firebase_getx_boilerplate/app/pages/home/widgets/popular.dart';
+import 'package:firebase_getx_boilerplate/app/pages/home/widgets/today.dart';
+import 'package:firebase_getx_boilerplate/app/pages/home/widgets/trending.dart';
 import 'package:flutter/material.dart';
 
 import "dart:js" as js;
@@ -35,18 +33,21 @@ class DesktopHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: Image.asset("assets/images/logo.png"),
+        backgroundColor: Colors.white,
+        elevation: 0,
+      ),
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Column(
           children: [
             header(),
             const SizedBox(height: 40),
             helloUser(),
-            FGBPTextField(
-              textController: controller.search,
-              hintText: "검색할 사진 이름 또는 #해시태그를 입력하세요",
-            ),
             const SizedBox(height: 24),
             getImage(),
             const SizedBox(height: 30),
@@ -56,15 +57,6 @@ class DesktopHomePage extends StatelessWidget {
                 child: Column(children: const [
                   Text("스토리", style: AppTextTheme.bold18),
                   SizedBox(height: 10),
-                  StoryCard(
-                      category: "풍경",
-                      content: "부산 광안리",
-                      imgUrl: "assets/images/test_busan.png"),
-                  SizedBox(height: 10),
-                  StoryCard(
-                      category: "풍경",
-                      content: "부산 광안리",
-                      imgUrl: "assets/images/test_busan.png"),
                 ]),
               ),
             ),
@@ -141,104 +133,150 @@ class MobileHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: Image.asset("assets/images/logo.png"),
+        backgroundColor: Colors.white,
+        elevation: 0,
+      ),
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            header(),
-            const SizedBox(height: 40),
-            helloUser(),
-            FGBPTextField(
-              textController: controller.search,
-              hintText: "검색할 사진 이름 또는 #해시태그를 입력하세요",
-            ),
-            const SizedBox(height: 24),
-            getImage(),
-            const SizedBox(height: 30),
-            storyHistory(),
+            popular(),
+            const SizedBox(height: 10),
+            Expanded(child: trendingCollection()),
+            const SizedBox(height: 10),
+            today(),
           ],
         ),
       )),
     );
   }
 
-  Card storyHistory() {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(children: const [
-          Text("스토리", style: AppTextTheme.bold18),
-          SizedBox(height: 10),
-          StoryCard(
-              category: "풍경",
-              content: "부산 광안리",
-              imgUrl: "assets/images/test_busan.png"),
-          const SizedBox(height: 10),
-          StoryCard(
-              category: "풍경",
-              content: "부산 광안리",
-              imgUrl: "assets/images/test_busan.png"),
-        ]),
-      ),
-    );
-  }
-
-  Row getImage() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  Column today() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(
-          child: ImageCard(
-              imgUrl: "assets/images/gallary.png",
-              title: "갤러리에서",
-              content: "사진 가져오기",
-              onTap: controller.getImageFromGallary),
+        Row(
+          children: [
+            Container(
+              width: 4,
+              height: 15,
+              color: const Color(0xb31e299c),
+            ),
+            const SizedBox(width: 2),
+            const Text("Today's Pick", style: AppTextTheme.bold20),
+          ],
         ),
-        const SizedBox(width: 22),
-        Expanded(
-          child: ImageCard(
-              imgUrl: "assets/images/camera.png",
-              title: "카메라에서",
-              content: "사진 촬영히기",
-              onTap: controller.getImageFromCamera),
+        const SizedBox(height: 10),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: const [
+            Expanded(
+                child: TodayCard(
+                    content: "KOOFA ZOO",
+                    imgUrl: "assets/images/test_6.png",
+                    category: "")),
+            Expanded(
+                child: TodayCard(
+                    content: "KOOFA ZOO",
+                    imgUrl: "assets/images/test_7.png",
+                    category: "")),
+          ],
         )
       ],
     );
   }
 
-  Row header() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: const [
-        Text(
-          "ENGLISH",
-          style: AppTextTheme.regular12,
+  Column trendingCollection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Container(
+              width: 4,
+              height: 15,
+              color: const Color(0xb31e299c),
+            ),
+            const SizedBox(width: 2),
+            const Text("Trending Collection", style: AppTextTheme.bold20),
+          ],
         ),
+        const SizedBox(height: 10),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: const [
+              CircleCard(
+                imgUrl: "assets/images/test_3.png",
+                content: "MRA",
+                category: "",
+              ),
+              SizedBox(width: 12),
+              CircleCard(
+                imgUrl: "assets/images/test_4.png",
+                content: "MRA",
+                category: "",
+              ),
+              SizedBox(width: 12),
+              CircleCard(
+                imgUrl: "assets/images/test_5.png",
+                content: "MRA",
+                category: "",
+              ),
+              SizedBox(width: 12),
+              CircleCard(
+                imgUrl: "assets/images/test_3.png",
+                content: "MRA",
+                category: "",
+              ),
+              SizedBox(width: 12),
+            ],
+          ),
+        )
       ],
     );
   }
 
-  Row helloUser() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  Column popular() {
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        Row(
           children: [
-            Text.rich(TextSpan(
-              children: [
-                TextSpan(
-                    text: controller.username.value,
-                    style: AppTextTheme.boldMain26),
-                const TextSpan(text: "님", style: AppTextTheme.bold26),
-              ],
-            )),
-            const Text("지금 기록을 남겨보세요", style: AppTextTheme.bold26)
+            Container(
+              width: 4,
+              height: 15,
+              color: const Color(0xb31e299c),
+            ),
+            const SizedBox(width: 2),
+            const Text("Popular", style: AppTextTheme.bold20),
           ],
         ),
-        Image.asset("assets/images/backpack.png")
+        Row(
+          children: const [
+            Expanded(
+              child: ImageCard(
+                imgUrl: "assets/images/test_1.png",
+                title: "The Name Of Nft",
+                content: "EARTH",
+              ),
+            ),
+            SizedBox(width: 20),
+            Expanded(
+              child: ImageCard(
+                imgUrl: "assets/images/test_2.png",
+                title: "The Name Of Nft",
+                content: "EARTH",
+              ),
+            ),
+          ],
+        ),
       ],
     );
   }

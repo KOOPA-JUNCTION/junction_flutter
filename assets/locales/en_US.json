@@ -1,10 +1,39 @@
 {
-    "buttons": {
-      "login": "Login",
-      "sign_in": "Sign-in",
-      "logout": "Logout",
-      "sign_in_fb": "Sign-in with Facebook",
-      "sign_in_google": "Sign-in with Google",
-      "sign_in_apple": "Sign-in with Apple"
-    }
+  "home": {
+    "title": "KOOPA",
+    "home": "home",
+    "stats": "stats",
+    "search": "search",
+    "profile": "profile",
+
+    "popular": "Popular"
+  },
+  "search": {
+    "title": "Search",
+    "hintText": "Search Koopa",
+    "allCategories": "All Categories",
+    "trending": "Trending Collections"
+  },
+  "profile": {
+    "my": "My Inventory"
+  },
+  "stats": {
+    "title": "Stats",
+    "rankings": "Rankings",
+    "activity": "Activity"
+  },
+  "imageDetail": {
+    "title": "Detail",
+    "create": "Create NFT"
+  },
+  "generateNft": {
+    "title": "Detail of NFT",
+    "name": "1. Name",
+    "description": "2. Description",
+    "category": "3. Category",
+    "addCategory": "Add category",
+    "blockchain": "4. Blockchain",
+    "startingPrice": "5. Starting Price",
+    "generate": "Generate"
   }
+}

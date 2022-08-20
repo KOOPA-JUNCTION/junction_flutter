@@ -69,7 +69,7 @@ class DesktopDetailViewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("자세히 보기", style: AppTextTheme.bold18),
+        title: const Text("Detail", style: AppTextTheme.bold18),
         backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
@@ -80,52 +80,13 @@ class DesktopDetailViewPage extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Image.asset(imgUrl),
-            Row(
-              children: [
-                Column(
-                  children: [
-                    Text(category, style: AppTextTheme.regularMain16),
-                    Text(content, style: AppTextTheme.bold26),
-                    Text.rich(
-                      TextSpan(
-                        children: [
-                          const TextSpan(
-                              text: "Owned by ",
-                              style: AppTextTheme.regularMain12),
-                          TextSpan(
-                              text: owner, style: AppTextTheme.regularSub12),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    const Text("Currnet Price",
-                        style: AppTextTheme.regularSub12),
-                    Row(
-                      children: [
-                        Image.asset("assets/images/ethereum.png"),
-                        Text(coin, style: AppTextTheme.regular20),
-                        const Text(
-                          "(\$63.64)",
-                          style: AppTextTheme.regularSub10,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            ),
+            Expanded(child: Image.asset(imgUrl)),
             FGBPButton(
                 child: Row(
               children: [
-                Image.asset("assets/images/wallet.png"),
                 const Text("Buy Now", style: AppTextTheme.semiboldWhite16)
               ],
             )),
-            Accordion(children: [])
           ],
         ),
       )),
