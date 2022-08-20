@@ -31,7 +31,7 @@ class FGBPSnackBar {
         Get.back();
       },
       titleText: Text(title, style: AppTextTheme.bold20),
-      messageText: Text(one, style: AppTextTheme.semiboldMain14),
+      messageText: Text(one, style: AppTextTheme.semibold16),
       isDismissible: true,
       backgroundColor: AppColorTheme.white,
       mainButton: FGBPTextButton(
@@ -52,9 +52,9 @@ class FGBPSnackBar {
       titleText: Text(title, style: AppTextTheme.bold20),
       messageText: Text.rich(
         TextSpan(children: [
-          TextSpan(text: many[0], style: AppTextTheme.semiboldMain14),
+          TextSpan(text: many[0], style: AppTextTheme.semibold16),
           TextSpan(text: many[1], style: AppTextTheme.extraBold22),
-          TextSpan(text: many[2], style: AppTextTheme.semiboldMain14),
+          TextSpan(text: many[2], style: AppTextTheme.semibold16),
         ]),
       ),
       isDismissible: true,

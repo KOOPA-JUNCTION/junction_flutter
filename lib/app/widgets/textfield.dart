@@ -21,10 +21,10 @@ class FGBPTextField extends StatelessWidget {
     return TextField(
       keyboardType: inputType,
       controller: textController,
-      style: AppTextTheme.regular20,
+      style: AppTextTheme.medium12,
       cursorColor: AppColorTheme.black,
       decoration: InputDecoration(
-        hintStyle: AppTextTheme.regularGrey14,
+        hintStyle: AppTextTheme.mediumSub12,
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: borderColor, width: 3),
           borderRadius: const BorderRadius.all(Radius.circular(12)),

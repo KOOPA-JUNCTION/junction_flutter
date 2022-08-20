@@ -12,93 +12,67 @@ abstract class AppTextTheme {
       fontSize: 22,
       color: AppColorTheme.mainColor);
 
+  static const boldSub12 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w700,
+      fontSize: 12,
+      color: AppColorTheme.subColor);
+  static const boldMain12 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w700,
+      fontSize: 12,
+      color: AppColorTheme.mainColor);
   static const bold20 = TextStyle(
       fontFamily: "Pretendard",
       fontWeight: FontWeight.w700,
       fontSize: 20,
       color: AppColorTheme.black);
-  static const boldMain20 = TextStyle(
-      fontFamily: "Pretendard",
-      fontWeight: FontWeight.w700,
-      fontSize: 20,
-      color: AppColorTheme.mainColor);
-
-  static const boldGray18 = TextStyle(
+  static const bold18 = TextStyle(
       fontFamily: "Pretendard",
       fontWeight: FontWeight.w700,
       fontSize: 18,
-      color: AppColorTheme.grey);
-  static const boldWhite14 = TextStyle(
+      color: AppColorTheme.black);
+  static const bold26 = TextStyle(
       fontFamily: "Pretendard",
       fontWeight: FontWeight.w700,
-      fontSize: 14,
-      color: AppColorTheme.white);
-  static const boldGrey12 = TextStyle(
+      fontSize: 26,
+      color: AppColorTheme.black);
+  static const boldMain26 = TextStyle(
       fontFamily: "Pretendard",
       fontWeight: FontWeight.w700,
-      fontSize: 12,
-      color: AppColorTheme.grey);
-
-  static const regularGrey14 = TextStyle(
-      fontFamily: "Pretendard",
-      fontWeight: FontWeight.w400,
-      fontSize: 14,
-      color: AppColorTheme.grey);
-  static const regular20 = TextStyle(
-      fontFamily: "Pretendard",
-      fontWeight: FontWeight.w400,
-      fontSize: 20,
-      color: AppColorTheme.black);
-  static const regular12 = TextStyle(
-      fontFamily: "Pretendard",
-      fontWeight: FontWeight.w400,
-      fontSize: 12,
-      color: AppColorTheme.black);
-  static const regularWhite12 = TextStyle(
-      fontFamily: "Pretendard",
-      fontWeight: FontWeight.w400,
-      fontSize: 12,
-      color: AppColorTheme.white);
-
-  static const semiboldMain14 = TextStyle(
-      fontFamily: "Pretendard",
-      fontWeight: FontWeight.w600,
-      fontSize: 14,
+      fontSize: 26,
       color: AppColorTheme.mainColor);
-  static const semiboldMain20 = TextStyle(
+
+  static const regularMain10 = TextStyle(
       fontFamily: "Pretendard",
-      fontWeight: FontWeight.w600,
-      fontSize: 20,
+      fontWeight: FontWeight.w400,
+      fontSize: 10,
       color: AppColorTheme.mainColor);
-  static const semiboldWhite22 = TextStyle(
-      fontFamily: "Pretendard",
-      fontWeight: FontWeight.w600,
-      fontSize: 22,
-      color: AppColorTheme.white);
-  static const semiboldGrey16 = TextStyle(
+
+  static const semiboldWhite16 = TextStyle(
       fontFamily: "Pretendard",
       fontWeight: FontWeight.w600,
       fontSize: 16,
-      color: AppColorTheme.grey);
-
-  static const medium20 = TextStyle(
+      color: AppColorTheme.white);
+  static const semibold16 = TextStyle(
       fontFamily: "Pretendard",
-      fontWeight: FontWeight.w500,
-      fontSize: 20,
-      color: AppColorTheme.black);
-  static const medium16 = TextStyle(
-      fontFamily: "Pretendard",
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w600,
       fontSize: 16,
       color: AppColorTheme.black);
-  static const mediumGrey14 = TextStyle(
+
+  static const mediumSub12 = TextStyle(
       fontFamily: "Pretendard",
       fontWeight: FontWeight.w500,
-      fontSize: 14,
-      color: AppColorTheme.grey);
-  static const mediumWhite14 = TextStyle(
+      fontSize: 12,
+      color: AppColorTheme.subColor);
+  static const mediumMain12 = TextStyle(
       fontFamily: "Pretendard",
       fontWeight: FontWeight.w500,
-      fontSize: 14,
-      color: AppColorTheme.white);
+      fontSize: 12,
+      color: AppColorTheme.mainColor);
+  static const medium12 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w500,
+      fontSize: 12,
+      color: AppColorTheme.black);
 }

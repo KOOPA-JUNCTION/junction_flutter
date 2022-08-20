@@ -59,7 +59,7 @@ class FGBPTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const textColor = AppTextTheme.regular20;
+    const textColor = AppTextTheme.regularMain10;
     return FGBPButton(
       height: height,
       onTap: onTap,
