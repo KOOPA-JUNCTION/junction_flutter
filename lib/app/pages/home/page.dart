@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
-    //if (isDesktop) return DesktopHomePage();
+    if (isDesktop) return DesktopHomePage();
     return MobileHomePage();
   }
 }
@@ -34,92 +34,184 @@ class DesktopHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        centerTitle: true,
-        title: Image.asset("assets/images/logo.png"),
         backgroundColor: Colors.white,
         elevation: 0,
+        title: Text(LocaleKeys.home_title.tr),
+        titleTextStyle: Get.textTheme.titleLarge!.copyWith(
+          fontWeight: FontWeight.w900,
+          color: const Color(0xff1e299c),
+        ),
+        automaticallyImplyLeading: false,
+        centerTitle: true,
       ),
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Column(
-          children: [
-            header(),
-            const SizedBox(height: 40),
-            helloUser(),
-            const SizedBox(height: 24),
-            getImage(),
-            const SizedBox(height: 30),
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(children: const [
-                  Text("스토리", style: AppTextTheme.bold18),
-                  SizedBox(height: 10),
-                ]),
-              ),
-            ),
-          ],
+        padding: const EdgeInsets.all(20),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              popular(),
+              const SizedBox(height: 50),
+              trendingCollection(),
+              const SizedBox(height: 50),
+              today(),
+            ],
+          ),
         ),
       )),
     );
   }
 
-  Row getImage() {
-    return Row(
+  Column today() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(
-          child: ImageCard(
-            imgUrl: "assets/images/gallary.png",
-            title: "갤러리에서",
-            content: "사진 가져오기",
-          ),
+        Row(
+          children: [
+            Container(
+              width: 4,
+              height: 15,
+              color: const Color(0xb31e299c),
+            ),
+            const SizedBox(width: 2),
+            const Text("Today's Pick", style: AppTextTheme.bold20),
+          ],
         ),
-        const SizedBox(width: 22),
-        Expanded(
-          child: ImageCard(
-            imgUrl: "assets/images/camera.png",
-            title: "카메라에서",
-            content: "사진 촬영히기",
+        const SizedBox(height: 20),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+                child: TodayCard(
+                    content: "KOOFA ZOO",
+                    imgUrl: "assets/images/test_6.png",
+                    category: "")),
+            SizedBox(width: 20),
+            Expanded(
+                child: TodayCard(
+                    content: "KOOFA ZOO",
+                    imgUrl: "assets/images/test_7.png",
+                    category: "")),
+            SizedBox(width: 20),
+            Expanded(
+                child: TodayCard(
+                    content: "KOOFA ZOO",
+                    imgUrl: "assets/images/test_7.png",
+                    category: "")),
+            SizedBox(width: 20),
+            Expanded(
+                child: TodayCard(
+                    content: "KOOFA ZOO",
+                    imgUrl: "assets/images/test_7.png",
+                    category: "")),
+          ],
+        )
+      ],
+    );
+  }
+
+  Column trendingCollection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Container(
+              width: 4,
+              height: 15,
+              color: const Color(0xb31e299c),
+            ),
+            const SizedBox(width: 2),
+            const Text("Trending Collection", style: AppTextTheme.bold20),
+          ],
+        ),
+        const SizedBox(height: 10),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              CircleCard(
+                imgUrl: "assets/images/test_3.png",
+                content: "MRA",
+                category: "",
+              ),
+              const SizedBox(width: 12),
+              CircleCard(
+                imgUrl: "assets/images/test_4.png",
+                content: "MRB",
+                category: "",
+              ),
+              const SizedBox(width: 12),
+              CircleCard(
+                imgUrl: "assets/images/test_5.png",
+                content: "MRC",
+                category: "",
+              ),
+              const SizedBox(width: 12),
+              CircleCard(
+                imgUrl: "assets/images/test_3.png",
+                content: "MRD",
+                category: "",
+              ),
+              const SizedBox(width: 12),
+            ],
           ),
         )
       ],
     );
   }
 
-  Row header() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: const [
-        Text(
-          "ENGLISH",
-          style: AppTextTheme.regular12,
-        ),
-      ],
-    );
-  }
-
-  Row helloUser() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+  Column popular() {
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        Row(
           children: [
-            Text.rich(TextSpan(
-              children: [
-                TextSpan(
-                    text: controller.username.value,
-                    style: AppTextTheme.boldMain26),
-                const TextSpan(text: "님", style: AppTextTheme.bold26),
-              ],
-            )),
-            const Text("지금 기록을 남겨보세요", style: AppTextTheme.bold26)
+            Container(
+              width: 4,
+              height: 15,
+              color: const Color(0xb31e299c),
+            ),
+            const SizedBox(width: 2),
+            const Text("Popular", style: AppTextTheme.bold20),
           ],
         ),
-        Image.asset("assets/images/backpack.png")
+        Row(
+          children: [
+            Expanded(
+              child: ImageCard(
+                imgUrl: "assets/images/test_1.png",
+                title: "The Name Of Nft",
+                content: "EARTH",
+              ),
+            ),
+            SizedBox(width: 20),
+            Expanded(
+              child: ImageCard(
+                imgUrl: "assets/images/test_2.png",
+                title: "The Name Of Nft",
+                content: "EARTH",
+              ),
+            ),
+            SizedBox(width: 20),
+            Expanded(
+              child: ImageCard(
+                imgUrl: "assets/images/test_2.png",
+                title: "The Name Of Nft",
+                content: "EARTH",
+              ),
+            ),
+            SizedBox(width: 20),
+            Expanded(
+              child: ImageCard(
+                imgUrl: "assets/images/test_2.png",
+                title: "The Name Of Nft",
+                content: "EARTH",
+              ),
+            ),
+          ],
+        ),
       ],
     );
   }

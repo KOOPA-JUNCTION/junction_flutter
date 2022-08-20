@@ -136,7 +136,8 @@ class ProfileView extends GetView<ProfilePageController> {
                               topRight: Radius.circular(16),
                             ),
                             child: Container(
-                              color: Colors.green,
+                              child:
+                                  Image.asset("assets/images/test_busan.png"),
                               height: 128,
                             ),
                           ),
