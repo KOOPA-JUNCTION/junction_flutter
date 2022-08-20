@@ -1,14 +1,8 @@
-import 'package:accordion/accordion.dart';
 import 'package:camera/camera.dart';
 import 'package:firebase_getx_boilerplate/app/core/theme/text_theme.dart';
 import 'package:firebase_getx_boilerplate/app/layout/adaptive.dart';
-import 'package:firebase_getx_boilerplate/app/pages/detail/controller.dart';
-import 'package:firebase_getx_boilerplate/app/pages/market/controller.dart';
-import 'package:firebase_getx_boilerplate/app/pages/market/widget/option.dart';
-import 'package:firebase_getx_boilerplate/app/pages/market/widget/result.dart';
 import 'package:firebase_getx_boilerplate/app/pages/profile/controller.dart';
 import 'package:firebase_getx_boilerplate/app/widgets/button.dart';
-import 'package:firebase_getx_boilerplate/app/widgets/textfield.dart';
 import 'package:firebase_getx_boilerplate/generated/locales.g.dart';
 import 'package:flutter/material.dart';
 
@@ -38,7 +32,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
-    if (isDesktop)
+    if (isDesktop) {
       return DesktopProfilePage(
         category: category,
         content: content,
@@ -46,6 +40,7 @@ class ProfilePage extends StatelessWidget {
         owner: owner,
         coin: coin,
       );
+    }
     return MobileProfilePage();
   }
 }
@@ -79,7 +74,7 @@ class DesktopProfilePage extends StatelessWidget {
             header(),
             userCard(),
             Column(
-              children: [
+              children: const [
                 Text("나의 자산", style: AppTextTheme.bold20),
               ],
             ),
@@ -94,7 +89,7 @@ class DesktopProfilePage extends StatelessWidget {
     return Card(
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
         Column(),
-        IconButton(onPressed: () {}, icon: Icon(Icons.turn_right))
+        IconButton(onPressed: () {}, icon: const Icon(Icons.turn_right))
       ]),
     );
   }
@@ -105,7 +100,7 @@ class DesktopProfilePage extends StatelessWidget {
       children: [
         IconButton(
           onPressed: () {},
-          icon: Icon(Icons.alarm),
+          icon: const Icon(Icons.alarm),
         )
       ],
     );

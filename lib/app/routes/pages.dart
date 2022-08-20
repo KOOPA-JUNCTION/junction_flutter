@@ -6,6 +6,6 @@ import 'package:get/get.dart';
 class AppPages {
   static final pages = [
     GetPage(
-        name: Routes.home, page: () => HomePage(), binding: HomePageBinding()),
+        name: Routes.home, page: () => const HomePage(), binding: HomePageBinding()),
   ];
 }

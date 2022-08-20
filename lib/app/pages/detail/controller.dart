@@ -11,8 +11,8 @@ class DetailViewPageController extends GetxController with StateMixin {
 
   @override
   void onInit() async {
-    final _cameras = await availableCameras();
-    initCamera(_cameras);
+    final cameras = await availableCameras();
+    initCamera(cameras);
     super.onInit();
   }
 

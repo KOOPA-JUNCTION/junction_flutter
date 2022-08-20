@@ -1,14 +1,9 @@
-import 'package:accordion/accordion.dart';
 import 'package:camera/camera.dart';
 import 'package:firebase_getx_boilerplate/app/core/theme/text_theme.dart';
 import 'package:firebase_getx_boilerplate/app/layout/adaptive.dart';
 import 'package:firebase_getx_boilerplate/app/pages/check/controller.dart';
-import 'package:firebase_getx_boilerplate/app/pages/detail/controller.dart';
-import 'package:firebase_getx_boilerplate/app/pages/market/controller.dart';
-import 'package:firebase_getx_boilerplate/app/pages/market/widget/option.dart';
-import 'package:firebase_getx_boilerplate/app/pages/market/widget/result.dart';
+
 import 'package:firebase_getx_boilerplate/app/widgets/button.dart';
-import 'package:firebase_getx_boilerplate/app/widgets/textfield.dart';
 import 'package:firebase_getx_boilerplate/generated/locales.g.dart';
 import 'package:flutter/material.dart';
 
@@ -38,7 +33,7 @@ class CheckImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
-    if (isDesktop)
+    if (isDesktop) {
       return DesktopCheckImage(
         category: category,
         content: content,
@@ -46,6 +41,7 @@ class CheckImage extends StatelessWidget {
         owner: owner,
         coin: coin,
       );
+    }
     return MobileCheckImage();
   }
 }
@@ -85,7 +81,7 @@ class DesktopCheckImage extends StatelessWidget {
           children: [
             Image.asset(imgUrl),
             Row(
-              children: [
+              children: const [
                 Text("나중에 발급하기 (이미지만 저장)"),
                 FGBPButton(child: Text("NFT 발급하기"))
               ],

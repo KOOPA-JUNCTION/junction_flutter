@@ -5,7 +5,6 @@ import 'package:firebase_getx_boilerplate/app/pages/home/controller.dart';
 import 'package:firebase_getx_boilerplate/app/pages/home/widgets/card.dart';
 import 'package:firebase_getx_boilerplate/app/pages/home/widgets/story.dart';
 import 'package:firebase_getx_boilerplate/app/widgets/button.dart';
-import 'package:firebase_getx_boilerplate/app/widgets/dropzone.dart';
 import 'package:firebase_getx_boilerplate/app/widgets/textfield.dart';
 import 'package:firebase_getx_boilerplate/generated/locales.g.dart';
 import 'package:flutter/material.dart';
@@ -54,9 +53,9 @@ class DesktopHomePage extends StatelessWidget {
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: Column(children: [
-                  const Text("스토리", style: AppTextTheme.bold18),
-                  const SizedBox(height: 10),
+                child: Column(children: const [
+                  Text("스토리", style: AppTextTheme.bold18),
+                  SizedBox(height: 10),
                   StoryCard(
                       category: "풍경",
                       content: "부산 광안리",

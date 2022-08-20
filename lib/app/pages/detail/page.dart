@@ -3,11 +3,7 @@ import 'package:camera/camera.dart';
 import 'package:firebase_getx_boilerplate/app/core/theme/text_theme.dart';
 import 'package:firebase_getx_boilerplate/app/layout/adaptive.dart';
 import 'package:firebase_getx_boilerplate/app/pages/detail/controller.dart';
-import 'package:firebase_getx_boilerplate/app/pages/market/controller.dart';
-import 'package:firebase_getx_boilerplate/app/pages/market/widget/option.dart';
-import 'package:firebase_getx_boilerplate/app/pages/market/widget/result.dart';
 import 'package:firebase_getx_boilerplate/app/widgets/button.dart';
-import 'package:firebase_getx_boilerplate/app/widgets/textfield.dart';
 import 'package:firebase_getx_boilerplate/generated/locales.g.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +33,7 @@ class DetailViewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
-    if (isDesktop)
+    if (isDesktop) {
       return DesktopDetailViewPage(
         category: category,
         content: content,
@@ -45,6 +41,7 @@ class DetailViewPage extends StatelessWidget {
         owner: owner,
         coin: coin,
       );
+    }
     return MobileDetailViewPage();
   }
 }
@@ -125,7 +122,7 @@ class DesktopDetailViewPage extends StatelessWidget {
                 child: Row(
               children: [
                 Image.asset("assets/images/wallet.png"),
-                Text("Buy Now", style: AppTextTheme.semiboldWhite16)
+                const Text("Buy Now", style: AppTextTheme.semiboldWhite16)
               ],
             )),
             Accordion(children: [])
