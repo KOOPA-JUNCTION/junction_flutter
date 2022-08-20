@@ -142,6 +142,11 @@ abstract class AppTextTheme {
       fontWeight: FontWeight.w500,
       fontSize: 12,
       color: AppColorTheme.black);
+  static const mediumGrey14 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w500,
+      fontSize: 14,
+      color: AppColorTheme.grey);
   static const medium16 = TextStyle(
       fontFamily: "Pretendard",
       fontWeight: FontWeight.w500,
