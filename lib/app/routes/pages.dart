@@ -36,12 +36,12 @@ class AppPages {
     ),
     GetPage(
       name: Routes.search_detail,
-      page: () => const SearchDetilView(),
+      page: () => SearchDetilView(),
       binding: SearchBinding(),
     ),
     GetPage(
       name: Routes.search_buy,
-      page: () => const SearchBuyView(),
+      page: () => SearchBuyView(),
       binding: SearchBinding(),
     ),
     GetPage(

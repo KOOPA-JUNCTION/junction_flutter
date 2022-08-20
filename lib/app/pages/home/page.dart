@@ -71,18 +71,18 @@ class DesktopHomePage extends StatelessWidget {
       children: [
         Expanded(
           child: ImageCard(
-              imgUrl: "assets/images/gallary.png",
-              title: "갤러리에서",
-              content: "사진 가져오기",
-              onTap: () {}),
+            imgUrl: "assets/images/gallary.png",
+            title: "갤러리에서",
+            content: "사진 가져오기",
+          ),
         ),
         const SizedBox(width: 22),
         Expanded(
           child: ImageCard(
-              imgUrl: "assets/images/camera.png",
-              title: "카메라에서",
-              content: "사진 촬영히기",
-              onTap: () {}),
+            imgUrl: "assets/images/camera.png",
+            title: "카메라에서",
+            content: "사진 촬영히기",
+          ),
         )
       ],
     );
@@ -181,7 +181,7 @@ class MobileHomePage extends StatelessWidget {
         const SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
+          children: [
             Expanded(
                 child: TodayCard(
                     content: "KOOFA ZOO",
@@ -218,31 +218,31 @@ class MobileHomePage extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: const [
+            children: [
               CircleCard(
                 imgUrl: "assets/images/test_3.png",
                 content: "MRA",
                 category: "",
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               CircleCard(
                 imgUrl: "assets/images/test_4.png",
-                content: "MRA",
+                content: "MRB",
                 category: "",
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               CircleCard(
                 imgUrl: "assets/images/test_5.png",
-                content: "MRA",
+                content: "MRC",
                 category: "",
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               CircleCard(
                 imgUrl: "assets/images/test_3.png",
-                content: "MRA",
+                content: "MRD",
                 category: "",
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
             ],
           ),
         )
@@ -266,7 +266,7 @@ class MobileHomePage extends StatelessWidget {
           ],
         ),
         Row(
-          children: const [
+          children: [
             Expanded(
               child: ImageCard(
                 imgUrl: "assets/images/test_1.png",

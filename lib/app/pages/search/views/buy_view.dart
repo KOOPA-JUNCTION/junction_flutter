@@ -1,11 +1,16 @@
 import 'package:firebase_getx_boilerplate/app/core/theme/color_theme.dart';
 import 'package:firebase_getx_boilerplate/app/core/theme/text_theme.dart';
+import 'package:firebase_getx_boilerplate/app/data/controllers/detail/controller.dart';
 import 'package:firebase_getx_boilerplate/app/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class SearchBuyView extends StatelessWidget {
-  const SearchBuyView({Key? key}) : super(key: key);
+  SearchBuyView({Key? key}) : super(key: key);
+
+  final DetailImageController detailController =
+      Get.find<DetailImageController>();
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +31,11 @@ class SearchBuyView extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Image.asset("assets/images/Dolphin.png", height: 160),
+                        Image.asset(detailController.imgUrl.value, height: 160),
                         const SizedBox(width: 16),
                         Column(children: [
-                          const Text("김현준 침팬지", style: AppTextTheme.bold26),
+                          Text(detailController.name.value,
+                              style: AppTextTheme.bold26),
                           const Text.rich(TextSpan(children: [
                             TextSpan(
                                 text: "Owned by",

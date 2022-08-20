@@ -1,6 +1,7 @@
 import 'package:accordion/accordion.dart';
 import 'package:firebase_getx_boilerplate/app/core/theme/color_theme.dart';
 import 'package:firebase_getx_boilerplate/app/core/theme/text_theme.dart';
+import 'package:firebase_getx_boilerplate/app/data/controllers/detail/controller.dart';
 import 'package:firebase_getx_boilerplate/app/pages/search/controllers/search_controller.dart';
 import 'package:firebase_getx_boilerplate/app/widgets/button.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class SearchDetilView extends GetView<SearchController> {
-  const SearchDetilView({Key? key}) : super(key: key);
+  SearchDetilView({Key? key}) : super(key: key);
+
+  final DetailImageController detailController =
+      Get.find<DetailImageController>();
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +32,13 @@ class SearchDetilView extends GetView<SearchController> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Row(
-                      children: [
-                        Expanded(
-                            child: Image.asset("assets/images/Dolphin.png"))
-                      ],
+                    Image.asset(
+                      detailController.imgUrl.value,
+                      height: Get.height / 4,
                     ),
                     const SizedBox(height: 26),
-                    const Text("김현준 침팬지", style: AppTextTheme.bold26),
+                    Text(detailController.name.value,
+                        style: AppTextTheme.bold26),
                     const Text.rich(TextSpan(children: [
                       TextSpan(text: "Owned by", style: AppTextTheme.regular12),
                       TextSpan(

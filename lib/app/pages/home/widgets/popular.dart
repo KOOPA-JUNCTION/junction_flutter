@@ -1,24 +1,28 @@
 import 'package:firebase_getx_boilerplate/app/core/theme/text_theme.dart';
+import 'package:firebase_getx_boilerplate/app/data/controllers/detail/controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ImageCard extends StatelessWidget {
-  const ImageCard(
-      {Key? key,
-      required this.imgUrl,
-      required this.title,
-      required this.content,
-      this.onTap})
-      : super(key: key);
+  ImageCard({
+    Key? key,
+    required this.imgUrl,
+    required this.title,
+    required this.content,
+  }) : super(key: key);
 
   final String imgUrl;
   final String title;
   final String content;
-  final Function()? onTap;
+
+  final DetailImageController controller = Get.find<DetailImageController>();
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        controller.getToDetailView(imgUrl, content);
+      },
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
