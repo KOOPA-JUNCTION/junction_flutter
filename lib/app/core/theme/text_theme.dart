@@ -48,16 +48,41 @@ abstract class AppTextTheme {
       fontWeight: FontWeight.w400,
       fontSize: 10,
       color: AppColorTheme.mainColor);
+  static const regularMain16 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w400,
+      fontSize: 16,
+      color: AppColorTheme.mainColor);
   static const regular10 = TextStyle(
       fontFamily: "Pretendard",
       fontWeight: FontWeight.w400,
       fontSize: 10,
+      color: AppColorTheme.black);
+  static const regularSub10 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w400,
+      fontSize: 10,
+      color: AppColorTheme.subColor);
+  static const regular20 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w400,
+      fontSize: 20,
       color: AppColorTheme.black);
   static const regular12 = TextStyle(
       fontFamily: "Pretendard",
       fontWeight: FontWeight.w400,
       fontSize: 10,
       color: AppColorTheme.black);
+  static const regularMain12 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w400,
+      fontSize: 10,
+      color: AppColorTheme.mainColor);
+  static const regularSub12 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w400,
+      fontSize: 10,
+      color: AppColorTheme.subColor);
 
   static const semiboldWhite16 = TextStyle(
       fontFamily: "Pretendard",
