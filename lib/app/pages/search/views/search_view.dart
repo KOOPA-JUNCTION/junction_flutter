@@ -128,64 +128,7 @@ class SearchView extends GetView<SearchController> {
                         mainAxisSpacing: 20,
                         mainAxisExtent: 165,
                       ),
-                      itemBuilder: (_, index) => SizedBox(
-                        width: 165,
-                        height: 190,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color(0xfffafafa),
-                            borderRadius: BorderRadius.circular(16),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(.2),
-                                blurRadius: 4,
-                              ),
-                            ],
-                          ),
-                          child: Stack(
-                            children: [
-                              Column(
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(16),
-                                      topRight: Radius.circular(16),
-                                    ),
-                                    child: Container(
-                                      height: 106,
-                                      color: Colors.red,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 26),
-                                  const Text(
-                                    'Jahoon Joo',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Align(
-                                alignment: Alignment.center,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.orange,
-                                    shape: BoxShape.circle,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(.3),
-                                        blurRadius: 4,
-                                      )
-                                    ],
-                                  ),
-                                  width: 40,
-                                  height: 40,
-                                ).marginOnly(top: 40),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                      itemBuilder: (_, index) => searchItem(),
                       itemCount: 80,
                     ),
                   ),
@@ -194,6 +137,70 @@ class SearchView extends GetView<SearchController> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget searchItem() {
+    return GestureDetector(
+      onTap: controller.moveToDetailView,
+      child: SizedBox(
+        width: 165,
+        height: 190,
+        child: Container(
+          decoration: BoxDecoration(
+            color: const Color(0xfffafafa),
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(.2),
+                blurRadius: 4,
+              ),
+            ],
+          ),
+          child: Stack(
+            children: [
+              Column(
+                children: [
+                  ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(16),
+                      topRight: Radius.circular(16),
+                    ),
+                    child: Container(
+                      height: 106,
+                      color: Colors.red,
+                    ),
+                  ),
+                  const SizedBox(height: 26),
+                  const Text(
+                    'Jahoon Joo',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.orange,
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(.3),
+                        blurRadius: 4,
+                      )
+                    ],
+                  ),
+                  width: 40,
+                  height: 40,
+                ).marginOnly(top: 40),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

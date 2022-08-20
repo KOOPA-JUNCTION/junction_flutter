@@ -90,6 +90,16 @@ abstract class AppTextTheme {
       fontWeight: FontWeight.w400,
       fontSize: 10,
       color: AppColorTheme.black);
+  static const regularGrey12 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w400,
+      fontSize: 12,
+      color: AppColorTheme.grey);
+  static const regularGrey10 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w400,
+      fontSize: 10,
+      color: AppColorTheme.grey);
   static const regularMain12 = TextStyle(
       fontFamily: "Pretendard",
       fontWeight: FontWeight.w400,
@@ -111,6 +121,11 @@ abstract class AppTextTheme {
       fontWeight: FontWeight.w600,
       fontSize: 16,
       color: AppColorTheme.black);
+  static const semibold14 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w600,
+      fontSize: 14,
+      color: AppColorTheme.black);
 
   static const mediumSub12 = TextStyle(
       fontFamily: "Pretendard",
@@ -131,6 +146,11 @@ abstract class AppTextTheme {
       fontFamily: "Pretendard",
       fontWeight: FontWeight.w500,
       fontSize: 16,
+      color: AppColorTheme.black);
+  static const medium18 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w500,
+      fontSize: 18,
       color: AppColorTheme.black);
   static const medium8 = TextStyle(
       fontFamily: "Pretendard",

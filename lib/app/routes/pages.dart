@@ -9,6 +9,8 @@ import 'package:firebase_getx_boilerplate/app/pages/profile/page.dart';
 import 'package:firebase_getx_boilerplate/app/pages/root/bindings/root_binding.dart';
 import 'package:firebase_getx_boilerplate/app/pages/root/views/root_view.dart';
 import 'package:firebase_getx_boilerplate/app/pages/search/bindings/search_binding.dart';
+import 'package:firebase_getx_boilerplate/app/pages/search/views/buy_view.dart';
+import 'package:firebase_getx_boilerplate/app/pages/search/views/detail_view.dart';
 import 'package:firebase_getx_boilerplate/app/pages/search/views/search_view.dart';
 import 'package:firebase_getx_boilerplate/app/pages/stats/bindings/stats_binding.dart';
 import 'package:firebase_getx_boilerplate/app/pages/stats/views/stats_view.dart';
@@ -30,6 +32,16 @@ class AppPages {
     GetPage(
       name: Routes.search,
       page: () => const SearchView(),
+      binding: SearchBinding(),
+    ),
+    GetPage(
+      name: Routes.search_detail,
+      page: () => const SearchDetilView(),
+      binding: SearchBinding(),
+    ),
+    GetPage(
+      name: Routes.search_buy,
+      page: () => const SearchBuyView(),
       binding: SearchBinding(),
     ),
     GetPage(
