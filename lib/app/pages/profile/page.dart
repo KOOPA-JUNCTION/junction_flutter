@@ -11,34 +11,22 @@ import "dart:js" as js;
 import 'package:get/get.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({
+  ProfilePage({
     Key? key,
-    required this.category,
-    required this.content,
-    required this.imgUrl,
-    required this.owner,
-    required this.coin,
   }) : super(key: key);
 
-  final String category;
-  final String content;
-  final String imgUrl;
-  final String owner;
-  final String coin;
-
-  //var state = js.JsObject.fromBrowserObject(js.context['state']);
-  //print(state['hello']);
+  final ProfilePageController controller = Get.find<ProfilePageController>();
 
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     if (isDesktop) {
       return DesktopProfilePage(
-        category: category,
-        content: content,
-        imgUrl: imgUrl,
-        owner: owner,
-        coin: coin,
+        category: controller.category.value,
+        content: controller.content.value,
+        imgUrl: controller.imgUrl.value,
+        owner: controller.owner.value,
+        coin: controller.coin.value,
       );
     }
     return MobileProfilePage();
@@ -140,7 +128,7 @@ class MobileProfilePage extends StatelessWidget {
                 js.context.callMethod('logger', ["flutterState"]);
               },
             ),
-            controller.obx((state) => CameraPreview(controller.controller))
+            //controller.obx((state) => CameraPreview(controller.controller))
           ],
         ),
       )),
