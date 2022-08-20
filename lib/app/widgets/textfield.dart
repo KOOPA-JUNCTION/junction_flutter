@@ -7,6 +7,7 @@ class FGBPTextField extends StatelessWidget {
       {Key? key,
       required this.textController,
       this.hintText,
+      this.onPressed,
       this.inputType = TextInputType.none,
       this.borderColor = AppColorTheme.mainColor})
       : super(key: key);
@@ -15,30 +16,34 @@ class FGBPTextField extends StatelessWidget {
   final String? hintText;
   final TextInputType? inputType;
   final Color borderColor;
+  final Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      keyboardType: inputType,
-      controller: textController,
-      style: AppTextTheme.medium12,
-      cursorColor: AppColorTheme.black,
-      decoration: InputDecoration(
-        hintStyle: AppTextTheme.mediumSub12,
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: borderColor, width: 3),
-          borderRadius: const BorderRadius.all(Radius.circular(12)),
+    return Material(
+      shadowColor: AppColorTheme.subColor,
+      child: TextField(
+        keyboardType: inputType,
+        controller: textController,
+        style: AppTextTheme.medium12,
+        cursorColor: AppColorTheme.black,
+        decoration: InputDecoration(
+          prefix:
+              IconButton(icon: const Icon(Icons.search), onPressed: onPressed),
+          hintStyle: AppTextTheme.mediumSub12,
+          focusedBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: AppColorTheme.mainColor, width: 1),
+              borderRadius: BorderRadius.all(Radius.circular(50))),
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: AppColorTheme.white, width: 1),
+            borderRadius: BorderRadius.all(Radius.circular(50)),
+          ),
+          fillColor: AppColorTheme.white,
+          filled: true,
+          hintText: hintText,
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: borderColor, width: 3),
-          borderRadius: const BorderRadius.all(Radius.circular(12)),
-        ),
-        fillColor: AppColorTheme.white,
-        filled: true,
-        hintText: hintText,
-        contentPadding:
-            const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-        focusColor: AppColorTheme.mainColor,
       ),
     );
   }
