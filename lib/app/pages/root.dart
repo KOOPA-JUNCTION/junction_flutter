@@ -26,8 +26,8 @@ class _RootPageState extends State<RootPage>
 
   @override
   void initState() {
-    animationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 250));
+    animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 250));
     degOneTranslationAnimation = TweenSequence([
       TweenSequenceItem<double>(
           tween: Tween<double>(begin: 0.0, end: 1.2), weight: 75.0),
@@ -200,7 +200,7 @@ class _RootPageState extends State<RootPage>
 List<Widget> widgetOptions = [
   const HomePage(),
   const MarketPage(),
-  ProfileView()
+  const ProfileView()
 ];
 
 class CircularButton extends StatelessWidget {

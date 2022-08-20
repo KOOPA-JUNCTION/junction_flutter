@@ -4,9 +4,9 @@ import 'package:firebase_getx_boilerplate/app/routes/route.dart';
 import 'package:firebase_getx_boilerplate/app/translation/translation.dart';
 import 'package:firebase_getx_boilerplate/generated/locales.g.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
-import 'package:url_strategy/url_strategy.dart';
+//import 'package:flutter_native_splash/flutter_native_splash.dart';
+//import 'package:url_strategy/url_strategy.dart';
 
 //https://medium.com/@kenaragorn/flutter-web-readiness-for-the-world-65a480d7c660
 //get generate locales assets/locales

@@ -1,4 +1,3 @@
-import 'package:accordion/accordion.dart';
 import 'package:camera/camera.dart';
 import 'package:firebase_getx_boilerplate/app/core/theme/text_theme.dart';
 import 'package:firebase_getx_boilerplate/app/layout/adaptive.dart';

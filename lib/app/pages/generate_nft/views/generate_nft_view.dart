@@ -35,7 +35,7 @@ class GenerateNftView extends GetView<GenerateNftController> {
                         ),
                       ],
                     ),
-                    child: PlatformFileImageViewer(file: controller.file),
+                    child: Container(),
                   ),
                 ],
               ),

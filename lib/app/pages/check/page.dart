@@ -1,14 +1,10 @@
-import 'package:camera/camera.dart';
 import 'package:firebase_getx_boilerplate/app/core/theme/text_theme.dart';
 import 'package:firebase_getx_boilerplate/app/layout/adaptive.dart';
 import 'package:firebase_getx_boilerplate/app/pages/check/controller.dart';
 
 import 'package:firebase_getx_boilerplate/app/widgets/button.dart';
 import 'package:firebase_getx_boilerplate/app/widgets/textfield.dart';
-import 'package:firebase_getx_boilerplate/generated/locales.g.dart';
 import 'package:flutter/material.dart';
-
-import "dart:js" as js;
 
 import 'package:get/get.dart';
 
@@ -114,7 +110,7 @@ class MobileCheckImage extends StatelessWidget {
           child: Column(
         children: [
           Image.asset(""),
-          Text("1. Name", style: AppTextTheme.bold18),
+          const Text("1. Name", style: AppTextTheme.bold18),
           FGBPTextField(textController: controller.nameController),
           FGBPTextField(textController: controller.nameController),
           FGBPTextField(textController: controller.nameController),

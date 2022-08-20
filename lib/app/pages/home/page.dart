@@ -1,10 +1,10 @@
-import 'package:camera/camera.dart';
 import 'package:firebase_getx_boilerplate/app/core/theme/text_theme.dart';
 import 'package:firebase_getx_boilerplate/app/layout/adaptive.dart';
 import 'package:firebase_getx_boilerplate/app/pages/home/controller.dart';
 import 'package:firebase_getx_boilerplate/app/pages/home/widgets/popular.dart';
 import 'package:firebase_getx_boilerplate/app/pages/home/widgets/today.dart';
 import 'package:firebase_getx_boilerplate/app/pages/home/widgets/trending.dart';
+import 'package:firebase_getx_boilerplate/generated/locales.g.dart';
 import 'package:flutter/material.dart';
 
 import "dart:js" as js;
@@ -134,24 +134,30 @@ class MobileHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        centerTitle: true,
-        title: Image.asset("assets/images/logo.png"),
         backgroundColor: Colors.white,
         elevation: 0,
+        title: Text(LocaleKeys.home_title.tr),
+        titleTextStyle: Get.textTheme.titleLarge!.copyWith(
+          fontWeight: FontWeight.w900,
+          color: const Color(0xff1e299c),
+        ),
+        automaticallyImplyLeading: false,
+        centerTitle: true,
       ),
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            popular(),
-            const SizedBox(height: 10),
-            Expanded(child: trendingCollection()),
-            const SizedBox(height: 10),
-            today(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              popular(),
+              const SizedBox(height: 50),
+              trendingCollection(),
+              const SizedBox(height: 50),
+              today(),
+            ],
+          ),
         ),
       )),
     );

@@ -2,7 +2,6 @@ import 'package:camera/camera.dart';
 import 'package:firebase_getx_boilerplate/app/data/controllers/image/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:path_provider/path_provider.dart';
 
 class TakePictureScreen extends StatefulWidget {
   final CameraDescription camera;
@@ -22,12 +21,12 @@ class TakePictureScreenState extends State<TakePictureScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Take a picture')),
+      appBar: AppBar(title: const Text('Take a picture')),
       // 카메라 프리뷰를 보여주기 전에 컨트롤러 초기화를 기다려야 합니다. 컨트롤러 초기화가
       // 완료될 때까지 FutureBuilder를 사용하여 로딩 스피너를 보여주세요.
       body: CameraPreview(_controller.controller),
       floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.camera_alt),
+          child: const Icon(Icons.camera_alt),
           // onPressed 콜백을 제공합니다.
           onPressed: () async {
             // try / catch 블럭에서 사진을 촬영합니다. 만약 뭔가 잘못된다면 에러에

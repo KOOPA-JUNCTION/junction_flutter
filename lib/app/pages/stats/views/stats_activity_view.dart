@@ -7,8 +7,6 @@ class StatsActivityView extends GetView<StatsController> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('test'),
-    );
+    return const Text('test');
   }
 }
