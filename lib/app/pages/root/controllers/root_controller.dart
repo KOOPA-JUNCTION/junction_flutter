@@ -48,7 +48,7 @@ class RootController extends GetxController {
         return GetPageRoute(
           transition: Transition.noTransition,
           settings: settings,
-          page: () => const SearchView(),
+          page: () => SearchView(),
           binding: SearchBinding(),
         );
       case Routes.profile:

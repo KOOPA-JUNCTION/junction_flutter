@@ -1,3 +1,4 @@
+import 'package:firebase_getx_boilerplate/app/data/controllers/detail/controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -33,7 +34,11 @@ class _TitleContent extends StatelessWidget {
 }
 
 class SearchView extends GetView<SearchController> {
-  const SearchView({Key? key}) : super(key: key);
+  SearchView({Key? key}) : super(key: key);
+
+  final DetailImageController detailImageController =
+      Get.find<DetailImageController>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,12 +90,14 @@ class SearchView extends GetView<SearchController> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(16),
                             child: Stack(children: [
-                              Container(color: Colors.red),
+                              Image.asset(
+                                controller.categories[index]["imgUrl"],
+                              ),
                               Positioned(
                                 left: 16,
                                 bottom: 16,
                                 child: Text(
-                                  '$index',
+                                  '${controller.categories[index]["name"]}',
                                   style: Get.textTheme.headline6!.copyWith(
                                     color: Colors.white,
                                   ),
@@ -101,7 +108,7 @@ class SearchView extends GetView<SearchController> {
                         ),
                         separatorBuilder: (_, index) =>
                             const SizedBox(width: 18),
-                        itemCount: 10,
+                        itemCount: 5,
                       ),
                     ),
                   ),
@@ -128,8 +135,9 @@ class SearchView extends GetView<SearchController> {
                         mainAxisSpacing: 20,
                         mainAxisExtent: 165,
                       ),
-                      itemBuilder: (_, index) => searchItem(),
-                      itemCount: 80,
+                      itemBuilder: (_, index) =>
+                          searchItem(controller.imgUrl[index]),
+                      itemCount: 12,
                     ),
                   ),
                 ],
@@ -141,9 +149,11 @@ class SearchView extends GetView<SearchController> {
     );
   }
 
-  Widget searchItem() {
+  Widget searchItem(String imgUrl) {
     return GestureDetector(
-      onTap: controller.moveToDetailView,
+      onTap: () {
+        detailImageController.getToDetailView(imgUrl, "");
+      },
       child: SizedBox(
         width: 165,
         height: 190,
@@ -168,8 +178,9 @@ class SearchView extends GetView<SearchController> {
                       topRight: Radius.circular(16),
                     ),
                     child: Container(
+                      alignment: Alignment.center,
                       height: 106,
-                      color: Colors.red,
+                      child: Image.asset(imgUrl, fit: BoxFit.fill),
                     ),
                   ),
                   const SizedBox(height: 26),
