@@ -48,6 +48,11 @@ abstract class AppTextTheme {
       fontWeight: FontWeight.w400,
       fontSize: 10,
       color: AppColorTheme.mainColor);
+  static const regular10 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w400,
+      fontSize: 10,
+      color: AppColorTheme.black);
   static const regular12 = TextStyle(
       fontFamily: "Pretendard",
       fontWeight: FontWeight.w400,
