@@ -27,6 +27,11 @@ abstract class AppTextTheme {
       fontWeight: FontWeight.w700,
       fontSize: 12,
       color: AppColorTheme.black);
+  static const bold16 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w700,
+      fontSize: 16,
+      color: AppColorTheme.black);
   static const bold20 = TextStyle(
       fontFamily: "Pretendard",
       fontWeight: FontWeight.w700,

@@ -1,3 +1,4 @@
+import 'package:firebase_getx_boilerplate/app/core/theme/text_theme.dart';
 import 'package:firebase_getx_boilerplate/app/pages/stats/controllers/stats_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,36 +11,46 @@ class StatsRankingView extends GetView<StatsController> {
     return CustomScrollView(
       slivers: [
         SliverAppBar(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              DropdownButton<String>(
-                items: [
-                  DropdownMenuItem(
-                    child: Row(
-                      children: const [
-                        Icon(Icons.attachment),
-                        Text('All categories'),
-                      ],
-                    ),
-                  )
-                ],
-                onChanged: (_) {},
-              ),
-              DropdownButton<String>(
-                items: [
-                  DropdownMenuItem(
-                    child: Row(
-                      children: const [
-                        Icon(Icons.attachment),
-                        Text('All chains'),
-                      ],
-                    ),
-                  )
-                ],
-                onChanged: (_) {},
-              ),
-            ],
+          title: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: DropdownButton<String>(
+                    items: [
+                      DropdownMenuItem(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(Icons.attachment),
+                            Text('All categories', style: AppTextTheme.bold16),
+                          ],
+                        ),
+                      )
+                    ],
+                    onChanged: (_) {},
+                  ),
+                ),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: DropdownButton<String>(
+                    items: [
+                      DropdownMenuItem(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(Icons.attachment),
+                            Text('All chains'),
+                          ],
+                        ),
+                      )
+                    ],
+                    onChanged: (_) {},
+                  ),
+                ),
+              ],
+            ),
           ),
           centerTitle: true,
           backgroundColor: const Color(0xfffafafa),

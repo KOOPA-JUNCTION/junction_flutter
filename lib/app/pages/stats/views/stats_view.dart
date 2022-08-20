@@ -23,15 +23,26 @@ class StatsView extends GetView<StatsController> {
           backgroundColor: Colors.transparent,
           centerTitle: true,
           bottom: TabBar(
+            automaticIndicatorColorAdjustment: true,
             labelColor: Colors.black,
             tabs: [
               Tab(
-                icon: const Icon(Icons.bar_chart_outlined),
-                text: LocaleKeys.stats_rankings.tr,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.bar_chart_outlined),
+                    Text(LocaleKeys.stats_rankings.tr),
+                  ],
+                ),
               ),
               Tab(
-                icon: const Icon(Icons.trending_up),
-                text: LocaleKeys.stats_activity.tr,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.trending_up),
+                    Text(LocaleKeys.stats_activity.tr),
+                  ],
+                ),
               ),
             ],
           ),
