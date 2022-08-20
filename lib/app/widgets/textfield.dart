@@ -28,8 +28,8 @@ class FGBPTextField extends StatelessWidget {
         style: AppTextTheme.medium12,
         cursorColor: AppColorTheme.black,
         decoration: InputDecoration(
-          prefix:
-              IconButton(icon: const Icon(Icons.search), onPressed: onPressed),
+          prefixIcon: const Icon(Icons.search, color: AppColorTheme.mainColor),
+          prefixIconColor: AppColorTheme.mainColor,
           hintStyle: AppTextTheme.mediumSub12,
           focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: AppColorTheme.mainColor, width: 1),

@@ -60,6 +60,7 @@ class DesktopHomePage extends StatelessWidget {
                       category: "풍경",
                       content: "부산 광안리",
                       imgUrl: "assets/images/test_busan.png"),
+                  SizedBox(height: 10),
                   StoryCard(
                       category: "풍경",
                       content: "부산 광안리",
@@ -76,14 +77,21 @@ class DesktopHomePage extends StatelessWidget {
   Row getImage() {
     return Row(
       children: [
-        ImageCard(
-            imgUrl: "assets/images/gallary.png",
-            content: "갤러리에서 사진 가져오기",
-            onTap: () {}),
-        ImageCard(
-            imgUrl: "assets/images/gallary.png",
-            content: "갤러리에서 사진 가져오기",
-            onTap: () {})
+        Expanded(
+          child: ImageCard(
+              imgUrl: "assets/images/gallary.png",
+              title: "갤러리에서",
+              content: "사진 가져오기",
+              onTap: () {}),
+        ),
+        const SizedBox(width: 22),
+        Expanded(
+          child: ImageCard(
+              imgUrl: "assets/images/camera.png",
+              title: "카메라에서",
+              content: "사진 촬영히기",
+              onTap: () {}),
+        )
       ],
     );
   }
@@ -102,6 +110,7 @@ class DesktopHomePage extends StatelessWidget {
 
   Row helloUser() {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Column(
@@ -132,35 +141,105 @@ class MobileHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.all(100),
+        padding: const EdgeInsets.all(20),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 8),
-            FGBPTextButton(
-              text: LocaleKeys.buttons_login.tr,
-              radius: 10,
-              onTap: () {
-                js.context.callMethod(
-                    "alertMessage", ["Flutter is Calling upon JavaScript"]);
-              },
+            header(),
+            const SizedBox(height: 40),
+            helloUser(),
+            FGBPTextField(
+              textController: controller.search,
+              hintText: "검색할 사진 이름 또는 #해시태그를 입력하세요",
             ),
-            const SizedBox(height: 8),
-            FGBPTextButton(
-              text: LocaleKeys.buttons_logout.tr,
-              radius: 10,
-              onTap: () {
-                js.context.callMethod('logger', ["flutterState"]);
-              },
-            ),
-            controller.obx((state) => CameraPreview(controller.controller))
+            const SizedBox(height: 24),
+            getImage(),
+            const SizedBox(height: 30),
+            storyHistory(),
           ],
         ),
       )),
+    );
+  }
+
+  Card storyHistory() {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(children: const [
+          Text("스토리", style: AppTextTheme.bold18),
+          SizedBox(height: 10),
+          StoryCard(
+              category: "풍경",
+              content: "부산 광안리",
+              imgUrl: "assets/images/test_busan.png"),
+          const SizedBox(height: 10),
+          StoryCard(
+              category: "풍경",
+              content: "부산 광안리",
+              imgUrl: "assets/images/test_busan.png"),
+        ]),
+      ),
+    );
+  }
+
+  Row getImage() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Expanded(
+          child: ImageCard(
+              imgUrl: "assets/images/gallary.png",
+              title: "갤러리에서",
+              content: "사진 가져오기",
+              onTap: controller.getImageFromGallary),
+        ),
+        const SizedBox(width: 22),
+        Expanded(
+          child: ImageCard(
+              imgUrl: "assets/images/camera.png",
+              title: "카메라에서",
+              content: "사진 촬영히기",
+              onTap: controller.getImageFromCamera),
+        )
+      ],
+    );
+  }
+
+  Row header() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: const [
+        Text(
+          "ENGLISH",
+          style: AppTextTheme.regular12,
+        ),
+      ],
+    );
+  }
+
+  Row helloUser() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text.rich(TextSpan(
+              children: [
+                TextSpan(
+                    text: controller.username.value,
+                    style: AppTextTheme.boldMain26),
+                const TextSpan(text: "님", style: AppTextTheme.bold26),
+              ],
+            )),
+            const Text("지금 기록을 남겨보세요", style: AppTextTheme.bold26)
+          ],
+        ),
+        Image.asset("assets/images/backpack.png")
+      ],
     );
   }
 }
