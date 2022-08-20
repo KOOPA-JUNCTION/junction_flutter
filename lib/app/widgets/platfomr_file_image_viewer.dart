@@ -1,8 +1,9 @@
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:camera/camera.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:get/utils.dart';
 
 class PlatformFileImageViewer extends StatelessWidget {
   final XFile file;
@@ -10,7 +11,14 @@ class PlatformFileImageViewer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (GetPlatform.isMobile) return Image.file(File(file.path));
-    return Container();
+    if (kIsWeb) {
+      return FutureBuilder(
+        future: file.readAsBytes(),
+        builder: (_, imageData) {
+          return Image.memory(imageData.data as Uint8List);
+        },
+      );
+    }
+    return Image.file(File(file.path));
   }
 }

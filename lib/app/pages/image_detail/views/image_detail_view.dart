@@ -1,3 +1,4 @@
+import 'package:firebase_getx_boilerplate/app/widgets/platfomr_file_image_viewer.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -20,13 +21,19 @@ class ImageDetailView extends GetView<ImageDetailController> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              //PlatformFileImageViewer(file: controller.),
+              Expanded(
+                  child: PlatformFileImageViewer(file: controller.file.value!)),
+              const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   ElevatedButton(
                     onPressed: controller.goToGenerateNFT,
-                    child: Text(LocaleKeys.imageDetail_create.tr),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 25, vertical: 10),
+                      child: Text(LocaleKeys.imageDetail_create.tr),
+                    ),
                   ),
                 ],
               )

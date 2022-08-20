@@ -67,28 +67,27 @@ class RootView extends GetView<RootController> {
                                 ),
                               ),
                             ),
-                            if (!GetPlatform.isWeb) const SizedBox(width: 60),
-                            if (!GetPlatform.isWeb)
-                              Container(
-                                decoration: BoxDecoration(
-                                  color: Get.theme.colorScheme.secondary,
+                            const SizedBox(width: 60),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Get.theme.colorScheme.secondary,
+                                borderRadius: BorderRadius.circular(32),
+                              ),
+                              child: Material(
+                                color: Colors.transparent,
+                                child: InkWell(
                                   borderRadius: BorderRadius.circular(32),
-                                ),
-                                child: Material(
-                                  color: Colors.transparent,
-                                  child: InkWell(
-                                    borderRadius: BorderRadius.circular(32),
-                                    onTap: controller.goToGetCamera,
-                                    child: const Padding(
-                                      padding: EdgeInsets.all(16),
-                                      child: Icon(
-                                        Icons.camera_alt_outlined,
-                                        color: Colors.white,
-                                      ),
+                                  onTap: controller.goToGetCamera,
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(16),
+                                    child: Icon(
+                                      Icons.camera_alt_outlined,
+                                      color: Colors.white,
                                     ),
                                   ),
                                 ),
                               ),
+                            ),
                           ],
                         ),
                         const SizedBox(height: 40),
