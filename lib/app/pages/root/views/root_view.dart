@@ -1,3 +1,5 @@
+import 'package:firebase_getx_boilerplate/app/core/theme/color_theme.dart';
+import 'package:firebase_getx_boilerplate/app/core/theme/text_theme.dart';
 import 'package:firebase_getx_boilerplate/app/routes/route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -99,6 +101,7 @@ class RootView extends GetView<RootController> {
       ),
       floatingActionButton: Obx(
         () => FloatingActionButton(
+          backgroundColor: AppColorTheme.mainColor,
           onPressed: controller.centerOpened.toggle,
           child: Icon(controller.centerOpened.isTrue ? Icons.close : Icons.add),
         ),
@@ -106,12 +109,16 @@ class RootView extends GetView<RootController> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
+          elevation: 5.0,
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: AppColorTheme.white,
+          selectedItemColor: AppColorTheme.mainColor,
+          unselectedItemColor: AppColorTheme.grey,
+          selectedLabelStyle: AppTextTheme.boldMain12,
+          unselectedLabelStyle: AppTextTheme.boldSub12,
           onTap: controller.changePage,
           currentIndex: controller.pageIndex,
-          selectedItemColor: const Color(0xff1e299c),
-          unselectedItemColor: const Color(0xff7e7e7d),
           showUnselectedLabels: true,
-          type: BottomNavigationBarType.fixed,
           selectedFontSize: 10,
           unselectedFontSize: 10,
           items: [

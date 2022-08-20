@@ -178,7 +178,7 @@ class MobileHomePage extends StatelessWidget {
             const Text("Today's Pick", style: AppTextTheme.bold20),
           ],
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: const [
@@ -187,6 +187,7 @@ class MobileHomePage extends StatelessWidget {
                     content: "KOOFA ZOO",
                     imgUrl: "assets/images/test_6.png",
                     category: "")),
+            SizedBox(width: 20),
             Expanded(
                 child: TodayCard(
                     content: "KOOFA ZOO",

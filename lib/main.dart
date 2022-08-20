@@ -24,7 +24,20 @@ void main() async {
   runApp(GetMaterialApp(
     initialRoute: Routes.root,
     getPages: AppPages.pages,
-    theme: ThemeData(fontFamily: "Pretendard"),
+    theme: ThemeData(
+      fontFamily: 'Pretendard',
+      colorScheme: Get.theme.colorScheme.copyWith(
+        primary: const Color(0xff1e299c),
+        secondary: const Color(0xff1e299c),
+      ),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Color(0xFFF5F5F5),
+        foregroundColor: Colors.black,
+        elevation: 0,
+        centerTitle: true,
+      ),
+      scaffoldBackgroundColor: Colors.white,
+    ),
     locale: GetCurrentLocale.currentDeviceLocale,
     translationsKeys: AppTranslation.translations,
     fallbackLocale: GetCurrentLocale.fallBackLocale,

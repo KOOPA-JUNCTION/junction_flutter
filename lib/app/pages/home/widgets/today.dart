@@ -16,6 +16,7 @@ class TodayCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 8,
       child: Column(children: <Widget>[
         Padding(
           padding: const EdgeInsets.all(15),
@@ -23,7 +24,10 @@ class TodayCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset(imgUrl),
+              Image.asset(
+                imgUrl,
+                fit: BoxFit.cover,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
