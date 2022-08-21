@@ -6,10 +6,6 @@ class SearchController extends GetxController {
 
   List<Map> categories = [
     {
-      "imgUrl": "assets/images/Dolphin.png",
-      "name": "Dolphin",
-    },
-    {
       "imgUrl": "assets/images/art.png",
       "name": "Art",
     },
@@ -19,11 +15,15 @@ class SearchController extends GetxController {
     },
     {
       "imgUrl": "assets/images/domain.png",
-      "name": "Domain Name",
+      "name": "Domain",
     },
     {
-      "imgUrl": "assets/images/Dolphin.png",
-      "name": "Dolphin",
+      "imgUrl": "assets/images/art.png",
+      "name": "Art",
+    },
+    {
+      "imgUrl": "assets/images/domain.png",
+      "name": "Domain",
     },
   ];
 

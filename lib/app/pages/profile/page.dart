@@ -149,7 +149,7 @@ class ProfileView extends GetView<ProfilePageController> {
                             child: Row(
                               children: [
                                 const Text(
-                                  '부산 광안리',
+                                  'Busan',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                   ),

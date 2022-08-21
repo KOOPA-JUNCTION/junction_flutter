@@ -49,10 +49,12 @@ class SearchDetilView extends GetView<SearchController> {
                     Accordion(
                         paddingListHorizontal: 0,
                         paddingListBottom: 12,
+                        headerPadding: const EdgeInsets.symmetric(
+                            vertical: 20, horizontal: 15),
                         contentBorderColor: AppColorTheme.grey,
                         children: [
                           AccordionSection(
-                              headerBackgroundColor: AppColorTheme.grey,
+                              headerBackgroundColor: Colors.white10,
                               header: Row(
                                 children: [
                                   SvgPicture.asset("assets/icons/price.svg"),
@@ -63,7 +65,7 @@ class SearchDetilView extends GetView<SearchController> {
                               ),
                               content: SizedBox()),
                           AccordionSection(
-                              headerBackgroundColor: AppColorTheme.grey,
+                              headerBackgroundColor: Colors.white10,
                               header: Row(
                                 children: [
                                   SvgPicture.asset(
@@ -75,7 +77,7 @@ class SearchDetilView extends GetView<SearchController> {
                               ),
                               content: SizedBox()),
                           AccordionSection(
-                              headerBackgroundColor: AppColorTheme.grey,
+                              headerBackgroundColor: Colors.white10,
                               header: Row(
                                 children: [
                                   SvgPicture.asset(
@@ -129,7 +131,7 @@ class SearchDetilView extends GetView<SearchController> {
                                   Image.asset("assets/images/aurora.png"),
                                   const Text.rich(TextSpan(children: [
                                     TextSpan(
-                                        text: "0.039",
+                                        text: "10.03",
                                         style: AppTextTheme.regular20),
                                     TextSpan(
                                         text: "(\$63.64)",

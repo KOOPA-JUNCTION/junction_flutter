@@ -83,7 +83,7 @@ class SearchBuyView extends StatelessWidget {
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: SvgPicture.asset("assets/icons/change.svg"),
+                          child: SvgPicture.asset("assets/icons/down.svg"),
                         )),
                     Container(
                         decoration: BoxDecoration(
@@ -97,15 +97,15 @@ class SearchBuyView extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  Image.asset("assets/images/ethereum.png"),
+                                  Image.asset("assets/images/aurora.png"),
                                   const SizedBox(width: 8),
-                                  const Text("ETH",
+                                  const Text("AURORA",
                                       style: AppTextTheme.medium18)
                                 ],
                               ),
                               const Text.rich(TextSpan(children: [
                                 TextSpan(
-                                    text: "0.039",
+                                    text: "10.39",
                                     style: AppTextTheme.regular20),
                                 TextSpan(
                                     text: "(\$63.64)",

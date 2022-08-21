@@ -1,3 +1,4 @@
+import 'package:firebase_getx_boilerplate/app/core/theme/color_theme.dart';
 import 'package:firebase_getx_boilerplate/app/pages/stats/views/stats_activity_view.dart';
 import 'package:firebase_getx_boilerplate/app/pages/stats/views/stats_ranking_view.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class StatsView extends GetView<StatsController> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 1,
       child: Scaffold(
         appBar: AppBar(
           title: Text(LocaleKeys.stats_title.tr),
@@ -23,6 +24,7 @@ class StatsView extends GetView<StatsController> {
           backgroundColor: Colors.transparent,
           centerTitle: true,
           bottom: TabBar(
+            indicatorColor: AppColorTheme.mainColor,
             automaticIndicatorColorAdjustment: true,
             labelColor: Colors.black,
             tabs: [
@@ -35,6 +37,7 @@ class StatsView extends GetView<StatsController> {
                   ],
                 ),
               ),
+              /*
               Tab(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -44,12 +47,13 @@ class StatsView extends GetView<StatsController> {
                   ],
                 ),
               ),
+              */
             ],
           ),
         ),
         body: const TabBarView(children: [
           StatsRankingView(),
-          StatsActivityView(),
+          //StatsActivityView(),
         ]),
       ),
     );

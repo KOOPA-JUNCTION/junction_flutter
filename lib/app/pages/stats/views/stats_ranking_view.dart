@@ -12,41 +12,67 @@ class StatsRankingView extends GetView<StatsController> {
       slivers: [
         SliverAppBar(
           title: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
-                  child: DropdownButton<String>(
-                    items: [
-                      DropdownMenuItem(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Icon(Icons.attachment),
-                            Text('All categories', style: AppTextTheme.bold16),
-                          ],
-                        ),
-                      )
-                    ],
-                    onChanged: (_) {},
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16.0),
+                      border: Border.all(
+                          color: Colors.grey,
+                          style: BorderStyle.solid,
+                          width: 2),
+                    ),
+                    child: DropdownButton<String>(
+                      underline: SizedBox(),
+                      isExpanded: true,
+                      items: [
+                        DropdownMenuItem(
+                          child: Center(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: const [
+                                Icon(Icons.attachment),
+                                Text('All categories',
+                                    style: AppTextTheme.bold16),
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
+                      onChanged: (_) {},
+                    ),
                   ),
                 ),
                 const SizedBox(width: 14),
                 Expanded(
-                  child: DropdownButton<String>(
-                    items: [
-                      DropdownMenuItem(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Icon(Icons.attachment),
-                            Text('All chains'),
-                          ],
-                        ),
-                      )
-                    ],
-                    onChanged: (_) {},
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16.0),
+                      border: Border.all(
+                          color: Colors.grey,
+                          style: BorderStyle.solid,
+                          width: 2),
+                    ),
+                    child: DropdownButton<String>(
+                      underline: SizedBox(),
+                      isExpanded: true,
+                      items: [
+                        DropdownMenuItem(
+                          child: Center(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: const [
+                                Icon(Icons.attachment),
+                                Text('All chains', textAlign: TextAlign.center),
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
+                      onChanged: (_) {},
+                    ),
                   ),
                 ),
               ],
@@ -69,11 +95,11 @@ class StatsRankingView extends GetView<StatsController> {
                       const SizedBox(width: 12),
                       Container(
                         decoration: BoxDecoration(
-                          color: Colors.red,
                           borderRadius: BorderRadius.circular(30),
                         ),
                         width: 40,
                         height: 40,
+                        child: Image.asset("assets/images/test_8.png"),
                       ),
                       const SizedBox(width: 12),
                       Column(
