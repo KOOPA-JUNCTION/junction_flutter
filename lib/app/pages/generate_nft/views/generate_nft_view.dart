@@ -145,10 +145,17 @@ class GenerateNftView extends GetView<GenerateNftController> {
                               elevation: 2,
                               borderRadius: BorderRadius.circular(16),
                               child: DropdownButton(
+                              
+                                isExpanded: true,
+                                underline: SizedBox(),
                                 items: controller.blockchainList
                                     .map((value) => DropdownMenuItem(
-                                          child: Text(
-                                            value,
+
+                                          child: Padding(
+                                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                                            child: Text(
+                                              value,
+                                            ),
                                           ),
                                           value: value,
                                         ))
