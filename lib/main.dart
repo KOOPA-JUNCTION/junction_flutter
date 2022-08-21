@@ -22,7 +22,7 @@ void main() async {
   await AppInitalizer().init();
   //setPathUrlStrategy();
   runApp(GetMaterialApp(
-    initialRoute: Routes.root,
+    initialRoute: Routes.login,
     getPages: AppPages.pages,
     theme: ThemeData(
       fontFamily: 'Pretendard',

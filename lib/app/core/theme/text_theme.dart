@@ -6,6 +6,11 @@ abstract class AppTextTheme {
   //Name Rule
   //FontWeight + Color + Font Size
 
+  static const extraboldMain40 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w900,
+      fontSize: 40,
+      color: AppColorTheme.mainColor);
   static const extraBold22 = TextStyle(
       fontFamily: "Pretendard",
       fontWeight: FontWeight.w800,
@@ -142,6 +147,16 @@ abstract class AppTextTheme {
       fontWeight: FontWeight.w500,
       fontSize: 12,
       color: AppColorTheme.black);
+  static const medium20 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w500,
+      fontSize: 20,
+      color: AppColorTheme.black);
+  static const mediumWhite20 = TextStyle(
+      fontFamily: "Pretendard",
+      fontWeight: FontWeight.w500,
+      fontSize: 20,
+      color: AppColorTheme.white);
   static const mediumGrey14 = TextStyle(
       fontFamily: "Pretendard",
       fontWeight: FontWeight.w500,
