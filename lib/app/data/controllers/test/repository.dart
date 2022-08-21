@@ -4,6 +4,4 @@ class TestRepository {
   final FGBPApiInterface api;
 
   TestRepository(this.api);
-
-  Future<void> get() => api.getInfo();
 }

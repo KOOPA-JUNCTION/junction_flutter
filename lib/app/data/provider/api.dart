@@ -2,6 +2,8 @@ import 'dart:html';
 
 import 'package:dio/dio.dart';
 import 'package:firebase_getx_boilerplate/app/data/provider/api_interface.dart';
+import 'package:firebase_getx_boilerplate/app/pages/login/controller.dart';
+import 'package:get/get.dart';
 
 class FGBPInterceptor extends Interceptor {
   final Dio _dioInstance;
@@ -9,6 +11,10 @@ class FGBPInterceptor extends Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    LoginController auth = Get.find<LoginController>();
+    if (auth.isLogined) {
+      options.headers['Authorization'] = 'Bearer ${auth.accessToken}';
+    }
     super.onRequest(options, handler);
   }
 
@@ -28,13 +34,13 @@ class FGBPApiProvider implements FGBPApiInterface {
   }
 
   @override
-  Future<void> loginWithWallet(String address,
+  Future<Map> loginWithWallet(String address,
       {String type = "hex, bech32, base58"}) async {
     String url = "/auth/wallet";
     Map data = {"address": address, "type": type};
-    final response = dio.post(url, data: data);
+    final response = await dio.post(url, data: data);
 
-    return;
+    return response.data;
   }
 
   @override
