@@ -15,8 +15,7 @@ class TodayCard extends StatelessWidget {
   final String content;
   final String imgUrl;
 
-    final DetailImageController controller = Get.find<DetailImageController>();
-
+  final DetailImageController controller = Get.find<DetailImageController>();
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +32,11 @@ class TodayCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset(
+                Image.network(
                   imgUrl,
                   fit: BoxFit.cover,
                 ),
+                const SizedBox(height: 8),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

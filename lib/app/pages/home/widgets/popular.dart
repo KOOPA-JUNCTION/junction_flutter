@@ -32,7 +32,7 @@ class ImageCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                Expanded(child: Image.asset(imgUrl, fit: BoxFit.cover)),
+                Expanded(child: Image.network(imgUrl, fit: BoxFit.cover)),
               ],
             ),
             const SizedBox(height: 6),

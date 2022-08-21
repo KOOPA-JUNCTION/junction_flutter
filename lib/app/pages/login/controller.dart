@@ -25,6 +25,5 @@ class LoginController extends GetxController with StateMixin {
   }
 
   String get accessToken => _accessToken.value!;
-
-  bool get isLogined => _accessToken.value != null;
+  bool get isLogined => checkLogin.value;
 }

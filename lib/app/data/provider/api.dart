@@ -11,10 +11,14 @@ class FGBPInterceptor extends Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    LoginController auth = Get.find<LoginController>();
-    if (auth.isLogined) {
-      options.headers['Authorization'] = 'Bearer ${auth.accessToken}';
-    }
+    options.headers = {
+      "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+      "Access-Control-Allow-Credentials":
+          true, // Required for cookies, authorization headers with HTTPS
+      "Access-Control-Allow-Headers":
+          "Origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,locale",
+      "Access-Control-Allow-Methods": "POST, OPTIONS"
+    };
     super.onRequest(options, handler);
   }
 
@@ -26,7 +30,7 @@ class FGBPInterceptor extends Interceptor {
 
 class FGBPApiProvider implements FGBPApiInterface {
   final Dio dio = Dio();
-  final baseUrl = "https:...";
+  final baseUrl = "http://59.1.4.101:3000";
 
   FGBPApiProvider() {
     dio.options.baseUrl = baseUrl;
@@ -46,13 +50,30 @@ class FGBPApiProvider implements FGBPApiInterface {
   @override
   Future<void> getNftList() async {
     String url = "/nfts";
+
     dio.get(url);
   }
 
   @override
-  Future<void> getNftRank() async {
+  Future<Map> getNftRank() async {
     String url = "/nfts/rank";
-    dio.get(url);
+    final response = await dio.get(url);
+
+    return response.data;
+  }
+
+  @override
+  Future<Map> getNftPopular() async {
+    String url = "/nfts/popular";
+    final response = await dio.get(url);
+    return response.data;
+  }
+
+  @override
+  Future<Map> getNftPick() async {
+    String url = "/nfts/pick";
+    final response = await dio.get(url);
+    return response.data;
   }
 
   @override

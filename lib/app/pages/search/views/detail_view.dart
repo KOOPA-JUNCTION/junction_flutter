@@ -32,7 +32,7 @@ class SearchDetilView extends GetView<SearchController> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Image.asset(
+                    Image.network(
                       detailController.imgUrl.value,
                       height: Get.height / 4,
                     ),

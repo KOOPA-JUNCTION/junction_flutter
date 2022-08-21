@@ -31,7 +31,8 @@ class SearchBuyView extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Image.asset(detailController.imgUrl.value, height: 160),
+                        Image.network(detailController.imgUrl.value,
+                            height: 160),
                         const SizedBox(width: 16),
                         Column(children: [
                           Text(detailController.name.value,
@@ -47,6 +48,7 @@ class SearchBuyView extends StatelessWidget {
                         ]),
                       ],
                     ),
+                    const SizedBox(height: 8),
                     Container(
                         decoration: BoxDecoration(
                             border: Border.all(color: AppColorTheme.grey),

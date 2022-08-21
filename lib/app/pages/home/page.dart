@@ -7,8 +7,6 @@ import 'package:firebase_getx_boilerplate/app/pages/home/widgets/trending.dart';
 import 'package:firebase_getx_boilerplate/generated/locales.g.dart';
 import 'package:flutter/material.dart';
 
-import "dart:js" as js;
-
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
@@ -63,7 +61,7 @@ class DesktopHomePage extends StatelessWidget {
     );
   }
 
-  Column today() {
+  Widget today() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -79,33 +77,37 @@ class DesktopHomePage extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-                child: TodayCard(
-                    content: "KOOFA ZOO",
-                    imgUrl: "assets/images/test_6.png",
-                    category: "")),
-            SizedBox(width: 20),
-            Expanded(
-                child: TodayCard(
-                    content: "KOOFA ZOO",
-                    imgUrl: "assets/images/test_7.png",
-                    category: "")),
-            SizedBox(width: 20),
-            Expanded(
-                child: TodayCard(
-                    content: "KOOFA ZOO",
-                    imgUrl: "assets/images/test_7.png",
-                    category: "")),
-            SizedBox(width: 20),
-            Expanded(
-                child: TodayCard(
-                    content: "KOOFA ZOO",
-                    imgUrl: "assets/images/test_7.png",
-                    category: "")),
-          ],
+        controller.obx(
+          (_) => Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                  child: TodayCard(
+                      content: "${controller.pick.value['data'][0]["name"]}",
+                      imgUrl:
+                          "http://59.1.4.101:3000/files/${controller.pick.value['data'][0]["imageFileName"]}",
+                      category: "")),
+              SizedBox(width: 20),
+              Expanded(
+                  child: TodayCard(
+                      content: "${controller.pick.value['data'][1]["name"]}",
+                      imgUrl:
+                          "http://59.1.4.101:3000/files/${controller.pick.value['data'][1]["imageFileName"]}",
+                      category: "")),
+              SizedBox(width: 20),
+              Expanded(
+                  child: TodayCard(
+                      content: "KOOFA ZOO",
+                      imgUrl: "assets/images/test_7.png",
+                      category: "")),
+              SizedBox(width: 20),
+              Expanded(
+                  child: TodayCard(
+                      content: "KOOFA ZOO",
+                      imgUrl: "assets/images/test_7.png",
+                      category: "")),
+            ],
+          ),
         )
       ],
     );
@@ -162,7 +164,7 @@ class DesktopHomePage extends StatelessWidget {
     );
   }
 
-  Column popular() {
+  Widget popular() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -177,40 +179,46 @@ class DesktopHomePage extends StatelessWidget {
             const Text("Popular", style: AppTextTheme.bold20),
           ],
         ),
-        Row(
-          children: [
-            Expanded(
-              child: ImageCard(
-                imgUrl: "assets/images/test_1.png",
-                title: "The Name Of Nft",
-                content: "EARTH",
+        controller.obx(
+          (_) => Row(
+            children: [
+              Expanded(
+                child: ImageCard(
+                  imgUrl:
+                      "http://59.1.4.101:3000/files/${controller.popular.value['data'][0]["imageFileName"]}",
+                  title:
+                      "http://59.1.4.101:3000/files/${controller.popular.value['data'][0]["name"]}",
+                  content:
+                      "http://59.1.4.101:3000/files/${controller.popular.value['data'][0]["name"]}",
+                ),
               ),
-            ),
-            SizedBox(width: 20),
-            Expanded(
-              child: ImageCard(
-                imgUrl: "assets/images/test_2.png",
-                title: "The Name Of Nft",
-                content: "EARTH",
+              const SizedBox(width: 20),
+              Expanded(
+                child: ImageCard(
+                  imgUrl:
+                      "http://59.1.4.101:3000/files/${controller.popular.value['data'][1]["imageFileName"]}",
+                  title: "${controller.popular.value['data'][1]["name"]}",
+                  content: "${controller.popular.value['data'][1]["name"]}",
+                ),
               ),
-            ),
-            SizedBox(width: 20),
-            Expanded(
-              child: ImageCard(
-                imgUrl: "assets/images/test_2.png",
-                title: "The Name Of Nft",
-                content: "EARTH",
+              const SizedBox(width: 20),
+              Expanded(
+                child: ImageCard(
+                  imgUrl: "assets/images/test_2.png",
+                  title: "The Name Of Nft",
+                  content: "EARTH",
+                ),
               ),
-            ),
-            SizedBox(width: 20),
-            Expanded(
-              child: ImageCard(
-                imgUrl: "assets/images/test_2.png",
-                title: "The Name Of Nft",
-                content: "EARTH",
+              const SizedBox(width: 20),
+              Expanded(
+                child: ImageCard(
+                  imgUrl: "assets/images/test_1.png",
+                  title: "The Name Of Nft",
+                  content: "EARTH",
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );
@@ -271,21 +279,25 @@ class MobileHomePage extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-                child: TodayCard(
-                    content: "KOOFA ZOO",
-                    imgUrl: "assets/images/test_6.png",
-                    category: "")),
-            SizedBox(width: 20),
-            Expanded(
-                child: TodayCard(
-                    content: "KOOFA ZOO",
-                    imgUrl: "assets/images/test_7.png",
-                    category: "")),
-          ],
+        controller.obx(
+          (_) => Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                  child: TodayCard(
+                      content: "${controller.pick.value['data'][0]["name"]}",
+                      imgUrl:
+                          "http://59.1.4.101:3000/files/${controller.pick.value['data'][0]["imageFileName"]}",
+                      category: "")),
+              SizedBox(width: 20),
+              Expanded(
+                  child: TodayCard(
+                      content: "${controller.pick.value['data'][1]["name"]}",
+                      imgUrl:
+                          "http://59.1.4.101:3000/files/${controller.pick.value['data'][1]["imageFileName"]}",
+                      category: "")),
+            ],
+          ),
         )
       ],
     );
@@ -357,24 +369,28 @@ class MobileHomePage extends StatelessWidget {
             const Text("Popular", style: AppTextTheme.bold20),
           ],
         ),
-        Row(
-          children: [
-            Expanded(
-              child: ImageCard(
-                imgUrl: "assets/images/test_1.png",
-                title: "The Name Of Nft",
-                content: "EARTH",
+        controller.obx(
+          (_) => Row(
+            children: [
+              Expanded(
+                child: ImageCard(
+                  imgUrl:
+                      "http://59.1.4.101:3000/files/${controller.popular.value['data'][0]["imageFileName"]}",
+                  title: "${controller.popular.value['data'][0]["name"]}",
+                  content: "${controller.popular.value['data'][0]["name"]}",
+                ),
               ),
-            ),
-            SizedBox(width: 20),
-            Expanded(
-              child: ImageCard(
-                imgUrl: "assets/images/test_2.png",
-                title: "The Name Of Nft",
-                content: "EARTH",
+              const SizedBox(width: 20),
+              Expanded(
+                child: ImageCard(
+                  imgUrl:
+                      "http://59.1.4.101:3000/files/${controller.popular.value['data'][1]["imageFileName"]}",
+                  title: "${controller.popular.value['data'][1]["name"]}",
+                  content: "${controller.popular.value['data'][1]["name"]}",
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );
