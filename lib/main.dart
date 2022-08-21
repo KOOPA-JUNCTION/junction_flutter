@@ -4,6 +4,7 @@ import 'package:firebase_getx_boilerplate/app/routes/route.dart';
 import 'package:firebase_getx_boilerplate/app/translation/translation.dart';
 import 'package:firebase_getx_boilerplate/generated/locales.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 //import 'package:flutter_native_splash/flutter_native_splash.dart';
 //import 'package:url_strategy/url_strategy.dart';
@@ -13,13 +14,13 @@ import 'package:get/get.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   // loading
-  // FlutterNativeSplash.remove(widgetsBinding: widgetsBinding);
+  await AppInitalizer().init();
+  FlutterNativeSplash.remove();
 
   // Do Firebase Initial Settings With Firebase CLI
   // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  await AppInitalizer().init();
   //setPathUrlStrategy();
   runApp(GetMaterialApp(
     initialRoute: Routes.login,
